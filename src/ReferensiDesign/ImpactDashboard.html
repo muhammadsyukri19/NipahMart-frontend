@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NipaHub Impact Dashboard | Sustainable Artisanal Growth</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#201b10",
+                        "on-secondary-fixed": "#321203",
+                        "on-primary-container": "#e8aba9",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-primary-fixed-variant": "#673a39",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fef2e0",
+                        "primary": "#512828",
+                        "inverse-surface": "#363024",
+                        "on-surface-variant": "#514443",
+                        "on-primary-fixed": "#331011",
+                        "secondary-fixed-dim": "#f6b99e",
+                        "tertiary-container": "#325227",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#f3e6d5",
+                        "surface-bright": "#fff8f2",
+                        "secondary-container": "#ffc1a6",
+                        "primary-fixed": "#ffdad8",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#201b10",
+                        "tertiary-fixed-dim": "#abd19a",
+                        "inverse-on-surface": "#fcefde",
+                        "background": "#fff8f2",
+                        "outline": "#837372",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f9ecdb",
+                        "tertiary-fixed": "#c7eeb5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#7a4d38",
+                        "tertiary": "#1c3b13",
+                        "on-tertiary-container": "#9fc48f",
+                        "primary-fixed-dim": "#f5b7b5",
+                        "outline-variant": "#d6c2c1",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f5b7b5",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#6b3e3d",
+                        "on-secondary-fixed-variant": "#663c28",
+                        "surface": "#fff8f2",
+                        "on-tertiary-fixed": "#032100",
+                        "on-tertiary-fixed-variant": "#2f4e24",
+                        "surface-variant": "#ede1d0",
+                        "secondary": "#82533d",
+                        "surface-tint": "#825150",
+                        "surface-container-highest": "#ede1d0",
+                        "surface-dim": "#e4d8c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .organic-texture {
+            background-image: radial-gradient(circle at 2px 2px, rgba(131, 115, 114, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .bento-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background organic-texture min-h-screen">
+    <!-- TopNavBar -->
+    <header
+        class="bg-background dark:bg-on-surface border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+        <div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">NipaHub</div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">Marketplace</a>
+                <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">About Nipah</a>
+                <a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 text-label-md font-label-md"
+                    href="#">Community</a>
+                <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">Education</a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4 text-primary dark:text-primary-fixed">
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity">search</span>
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-opacity">shopping_cart</span>
+                </div>
+                <button
+                    class="bg-primary text-on-primary px-6 py-2 rounded-lg text-label-md font-label-md hover:opacity-90 transition-opacity">Sign
+                    In</button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-container-max mx-auto px-margin-desktop py-12">
+        <!-- Header Section -->
+        <section class="mb-16">
+            <h1 class="text-display-lg font-display-lg text-primary mb-4">Impact Dashboard</h1>
+            <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                A visual summary of our journey towards sustainable coastal artisanal development in Aceh. Every metric
+                represents a life touched and a tradition preserved.
+            </p>
+        </section>
+        <!-- Bento Grid Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
+            <!-- Large Focus Card -->
+            <div
+                class="md:col-span-2 md:row-span-2 bento-card bg-surface-container-low p-8 rounded-xl border border-outline-variant flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start">
+                        <span
+                            class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Primary
+                            Metric</span>
+                        <span class="material-symbols-outlined text-primary">trending_up</span>
+                    </div>
+                    <h3 class="text-headline-md font-headline-md text-on-surface mt-6">Economic Growth</h3>
+                    <p class="text-body-md font-body-md text-on-surface-variant mt-2">Annualized local artisan revenue
+                        increase across Aceh coastal regions.</p>
+                </div>
+                <div class="mt-8">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-display-lg font-display-lg text-primary">+42%</span>
+                        <span class="text-on-tertiary-fixed-variant text-label-md font-label-md">YoY Growth</span>
+                    </div>
+                    <!-- Simplified Visual Chart -->
+                    <div class="h-24 flex items-end gap-1 mt-6">
+                        <div class="bg-primary-container w-full rounded-t" style="height: 30%;"></div>
+                        <div class="bg-primary-container w-full rounded-t" style="height: 45%;"></div>
+                        <div class="bg-primary-container w-full rounded-t" style="height: 40%;"></div>
+                        <div class="bg-primary-container w-full rounded-t" style="height: 60%;"></div>
+                        <div class="bg-primary-container w-full rounded-t" style="height: 55%;"></div>
+                        <div class="bg-primary-container w-full rounded-t" style="height: 85%;"></div>
+                        <div class="bg-primary w-full rounded-t" style="height: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Active Farmers -->
+            <div class="bento-card bg-surface-container p-6 rounded-xl border border-outline-variant">
+                <span class="material-symbols-outlined text-secondary"
+                    style="font-variation-settings: 'FILL' 1;">agriculture</span>
+                <h4 class="text-label-md font-label-md text-on-surface-variant mt-4">Active Farmers</h4>
+                <div class="text-headline-sm font-headline-sm text-on-surface mt-1">1,284</div>
+                <div class="mt-4 text-label-sm font-label-sm text-tertiary-fixed-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                    12% increase this month
+                </div>
+            </div>
+            <!-- MSMEs Empowered -->
+            <div class="bento-card bg-surface-container p-6 rounded-xl border border-outline-variant">
+                <span class="material-symbols-outlined text-secondary"
+                    style="font-variation-settings: 'FILL' 1;">storefront</span>
+                <h4 class="text-label-md font-label-md text-on-surface-variant mt-4">MSMEs Empowered</h4>
+                <div class="text-headline-sm font-headline-sm text-on-surface mt-1">156</div>
+                <div class="mt-4 text-label-sm font-label-sm text-tertiary-fixed-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    84% Fully Certified
+                </div>
+            </div>
+            <!-- Products Sold -->
+            <div
+                class="md:col-span-2 bento-card bg-surface-container-high p-6 rounded-xl border border-outline-variant flex items-center justify-between">
+                <div>
+                    <h4 class="text-label-md font-label-md text-on-surface-variant">Global Reach</h4>
+                    <div class="text-headline-md font-headline-md text-on-surface mt-1">45,820 <span
+                            class="text-body-md font-body-md text-on-surface-variant">Units Sold</span></div>
+                </div>
+                <div class="flex -space-x-4">
+                    <img class="w-12 h-12 rounded-full border-2 border-surface object-cover"
+                        data-alt="Close-up portrait of a skilled Indonesian craftswoman with a warm expression, working in a natural light-filled coastal studio in Aceh. The scene is soft-focused with rich earthy tones of terracotta and cream, highlighting her authentic artisanal process."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhtL4_u5H_cFzbdKOyFs6Ih_PT1dk6OkRoKIBdJWHCvzn99tsfeau7-DV0E0JokkJj7IPcBy6HR3pm6CtaEWvezpJa7XxQWwmVxBtTFUxgu-e0RYxmiphxgl5ch7OQAzncT9tBpu2Or2lAEU1pSTSpzEbeZ7oZlAC9gZI9xBWuAZFbfHWTjDdEkIeF55Ht7Dg35V3MeMLNBwHEwprpU8_HvHS20V56p22C1Vc3HeomkdO-U7ukA6W_1hUVyt1k9U_O3Q40ae96Vo8k" />
+                    <img class="w-12 h-12 rounded-full border-2 border-surface object-cover"
+                        data-alt="A dignified elderly Indonesian farmer standing amidst a lush mangrove forest in Aceh. He wears traditional attire and has a look of pride and resilience. The lighting is warm and sun-drenched, creating a serene and natural atmosphere that reflects environmental stewardship."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN8rj9tyNUBBXkduTPO_GcdPlEUZK7zd8fp4mDJ8xyWqpqeH7fOUpLiKPIfn4ELr9DqtgxfZ09Ovbox-pz-ZDMXqVhXSLwbCQgemz3zsOsxEVSexOrY7E2izRCNwHCCOoJpqDOAPwk_VLXeYL--dHKWVXwLmTRhyvwmksDRxAtyLvuzkKJFCLoBDG2RgK8Bj8ylatfV4Hk7mj4e3cIJRkmUWG-VtMUGCmp8l-eNwdLCu8WLODUL_dqUu_Z34ENIMz3wyCMuM1QmzSd" />
+                    <img class="w-12 h-12 rounded-full border-2 border-surface object-cover"
+                        data-alt="A young male artisan in a modern Aceh workshop, meticulously finishing a woven palm leaf product. The workspace is bright and airy with an elegant, minimalist design. The overall aesthetic is clean and professional, using a palette of warm browns and off-whites."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiR_GXz4vfY0m8gfrJm_Zcq6ONSvqREz4yLm6R8ozYcJ2a2cmcpG_zsPd9ufd0D_Jd4gzQaRpub6JiXHmwwPv2KDMOp8ONx3UBfsUpLS6LqPdL7E2gdTLksCtJf3kCM3pJPEVE_koo5J1EpqwtjBtbZUf7uBAAAA9uUU8m3TfYvfCE-IC1BlRzvbo8b4oL87Tbc54NDQSpQHE5j5ugaed4fjTEpUqTmZNGVe8QK1jkbMU9QWAQdrnaK7ELWYdu8M4qZLpIXu_gX5_X" />
+                    <div
+                        class="w-12 h-12 rounded-full border-2 border-surface bg-primary text-on-primary flex items-center justify-center text-label-sm font-label-sm">
+                        +1.2k</div>
+                </div>
+            </div>
+        </div>
+        <!-- SDG Indicators Section -->
+        <section class="mb-20">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+                <div>
+                    <h2 class="text-headline-md font-headline-md text-primary">SDG Progress Indicators</h2>
+                    <p class="text-body-md font-body-md text-on-surface-variant mt-2">Aligning our mission with United
+                        Nations Sustainable Development Goals.</p>
+                </div>
+                <button
+                    class="border border-primary text-primary px-6 py-2 rounded-lg text-label-md font-label-md hover:bg-primary hover:text-on-primary transition-all duration-300">Download
+                    Impact Report</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- SDG 1 -->
+                <div class="bg-surface p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-[#E5243B] text-white flex items-center justify-center rounded-lg mb-4 text-headline-sm">
+                        1</div>
+                    <h4 class="text-label-md font-label-md text-on-surface mb-2 uppercase tracking-wider">No Poverty
+                    </h4>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-6">Increasing household income for
+                        2,500 families by 2025.</p>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <span class="text-label-sm font-label-sm text-primary">Progress</span>
+                            <span class="text-label-sm font-label-sm text-primary">68%</span>
+                        </div>
+                        <div class="overflow-hidden h-2 text-xs flex rounded bg-surface-container-highest">
+                            <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
+                                style="width:68%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SDG 8 -->
+                <div class="bg-surface p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-[#A21942] text-white flex items-center justify-center rounded-lg mb-4 text-headline-sm">
+                        8</div>
+                    <h4 class="text-label-md font-label-md text-on-surface mb-2 uppercase tracking-wider">Decent Work
+                    </h4>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-6">Creating fair-trade jobs in rural
+                        coastal manufacturing hubs.</p>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <span class="text-label-sm font-label-sm text-primary">Progress</span>
+                            <span class="text-label-sm font-label-sm text-primary">45%</span>
+                        </div>
+                        <div class="overflow-hidden h-2 text-xs flex rounded bg-surface-container-highest">
+                            <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
+                                style="width:45%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SDG 12 -->
+                <div class="bg-surface p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-[#BF8B2E] text-white flex items-center justify-center rounded-lg mb-4 text-headline-sm">
+                        12</div>
+                    <h4 class="text-label-md font-label-md text-on-surface mb-2 uppercase tracking-wider">Responsible
+                        Consumption</h4>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-6">Zero-waste production using every
+                        part of the Nipah palm.</p>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <span class="text-label-sm font-label-sm text-primary">Progress</span>
+                            <span class="text-label-sm font-label-sm text-primary">92%</span>
+                        </div>
+                        <div class="overflow-hidden h-2 text-xs flex rounded bg-surface-container-highest">
+                            <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
+                                style="width:92%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SDG 14 -->
+                <div class="bg-surface p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-[#0A97D9] text-white flex items-center justify-center rounded-lg mb-4 text-headline-sm">
+                        14</div>
+                    <h4 class="text-label-md font-label-md text-on-surface mb-2 uppercase tracking-wider">Life Below
+                        Water</h4>
+                    <p class="text-body-md font-body-md text-on-surface-variant mb-6">Restoring 500 hectares of mangrove
+                        ecosystem annually.</p>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <span class="text-label-sm font-label-sm text-primary">Progress</span>
+                            <span class="text-label-sm font-label-sm text-primary">31%</span>
+                        </div>
+                        <div class="overflow-hidden h-2 text-xs flex rounded bg-surface-container-highest">
+                            <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
+                                style="width:31%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Asymmetric Regional Spotlight -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+            <div class="lg:col-span-7 rounded-2xl overflow-hidden relative group aspect-video">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    data-alt="A wide-angle, cinematic view of a tranquil coastal village in Aceh, Indonesia during the golden hour. The landscape features lush mangrove forests and traditional stilt houses. The lighting is ethereal and warm, with soft oranges and deep greens, conveying a sense of environmental harmony and cultural heritage."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmWI4bRA0ol2wklKF5uNQapGPtyvIbL2_0AzmjEO5YfcW0y6Bkiiwukfm6-rA7NJYUdTha1RewFMjpx4rwPPIiWa6msq1032ZL3l-GKtkQqEIsLNjpy1Vc4Y_qFIAryrPblCBCPoHnZn0qpxzxsArkuTPhO5P97Fvvs0ZJa7ittgKVPD1A0_GB7ezc64_1sHGsKKVMJJpoByHubzZt5TTpJQJVZpNkntSuntUKqxVnDV1n9Qs3ne0bjg6Q3qYBqS1ljtkVUZBxXRhA" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                    <div class="text-white">
+                        <span class="text-label-sm font-label-sm uppercase tracking-widest text-primary-fixed">Active
+                            Region</span>
+                        <h3 class="text-headline-md font-headline-md mt-2">Banda Aceh Coastal Hub</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 space-y-6">
+                <h3 class="text-headline-sm font-headline-sm text-primary">Localized Impact Spotlights</h3>
+                <p class="text-body-md font-body-md text-on-surface-variant">We don't just measure global numbers; we
+                    look at the revitalization of specific communities. In Banda Aceh, the introduction of modern drying
+                    facilities has reduced raw material waste by 35%.</p>
+                <ul class="space-y-4">
+                    <li class="flex gap-4 items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-on-secondary-container">eco</span>
+                        </div>
+                        <div>
+                            <span class="text-label-md font-label-md text-on-surface">Renewable Infrastructure</span>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Solar-powered artisan
+                                workshops established in 12 villages.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-on-tertiary-container">history_edu</span>
+                        </div>
+                        <div>
+                            <span class="text-label-md font-label-md text-on-surface">Skill Preservation</span>
+                            <p class="text-label-sm font-label-sm text-on-surface-variant">Mentorship program paired 40
+                                master artisans with 120 youth apprentices.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-high dark:bg-on-surface mt-20">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop py-12 max-w-container-max mx-auto border-t border-outline-variant">
+            <div class="mb-8 md:mb-0 max-w-sm">
+                <div class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed mb-4">NipaHub</div>
+                <p class="text-body-md font-body-md text-on-surface-variant">© 2024 NipaHub. Bridging artisanal Aceh
+                    with global sustainability. Our mission is to preserve heritage through modern economic empowerment.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div class="flex flex-col gap-4">
+                    <span
+                        class="text-label-md font-label-md text-primary dark:text-primary-fixed font-bold">Platform</span>
+                    <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:underline decoration-primary"
+                        href="#">Brand Story</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:underline decoration-primary"
+                        href="#">Social Impact</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span
+                        class="text-label-md font-label-md text-primary dark:text-primary-fixed font-bold">Initiatives</span>
+                    <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:underline decoration-primary"
+                        href="#">SDGs</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:underline decoration-primary"
+                        href="#">Newsletter</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span
+                        class="text-label-md font-label-md text-primary dark:text-primary-fixed font-bold">Support</span>
+                    <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:underline decoration-primary"
+                        href="#">Contact</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant text-label-md font-label-md hover:underline decoration-primary"
+                        href="#">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple Micro-interaction for Progress Bars on Scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target.querySelector('.bg-primary');
+                    if (bar) {
+                        const targetWidth = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.transition = 'width 1.5s ease-out';
+                            bar.style.width = targetWidth;
+                        }, 100);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-surface').forEach(card => observer.observe(card));
+    </script>
+</body>
+
+</html>

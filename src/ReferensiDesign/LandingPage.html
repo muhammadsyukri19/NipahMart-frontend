@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NipaHub | Connecting Coastal Potential with Digital Markets</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#201b10",
+                    "on-secondary-fixed": "#321203",
+                    "on-primary-container": "#e8aba9",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-primary-fixed-variant": "#673a39",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#fef2e0",
+                    "primary": "#512828",
+                    "inverse-surface": "#363024",
+                    "on-surface-variant": "#514443",
+                    "on-primary-fixed": "#331011",
+                    "secondary-fixed-dim": "#f6b99e",
+                    "tertiary-container": "#325227",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#f3e6d5",
+                    "surface-bright": "#fff8f2",
+                    "secondary-container": "#ffc1a6",
+                    "primary-fixed": "#ffdad8",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "on-background": "#201b10",
+                    "tertiary-fixed-dim": "#abd19a",
+                    "inverse-on-surface": "#fcefde",
+                    "background": "#fff8f2",
+                    "outline": "#837372",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f9ecdb",
+                    "tertiary-fixed": "#c7eeb5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#7a4d38",
+                    "tertiary": "#1c3b13",
+                    "on-tertiary-container": "#9fc48f",
+                    "primary-fixed-dim": "#f5b7b5",
+                    "outline-variant": "#d6c2c1",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#f5b7b5",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#6b3e3d",
+                    "on-secondary-fixed-variant": "#663c28",
+                    "surface": "#fff8f2",
+                    "on-tertiary-fixed": "#032100",
+                    "on-tertiary-fixed-variant": "#2f4e24",
+                    "surface-variant": "#ede1d0",
+                    "secondary": "#82533d",
+                    "surface-tint": "#825150",
+                    "surface-container-highest": "#ede1d0",
+                    "surface-dim": "#e4d8c7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Playfair Display"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(255, 248, 242, 1) 30%, rgba(255, 248, 242, 0) 100%);
+        }
+        .sdg-card:hover .sdg-icon {
+            transform: translateY(-4px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-background border-b border-outline-variant">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold text-primary">NipaHub</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md" href="#">About Nipah</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md" href="#">Education</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:opacity-90 transition-opacity">
+                    Sign In
+                </button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] min-h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Coastal Nipah Palms" class="w-full h-full object-cover" data-alt="A breathtaking aerial view of lush coastal Nipah palm forests in Aceh at sunset. The warm golden light reflects off the winding estuarine waters, highlighting the dense green fronds and the serene, natural landscape. The aesthetic is earthy and premium, with deep natural tones that emphasize environmental sustainability and artisanal origins." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHbcV39mVgMoldlXiPTx_9CEKkjD1ufBo6n5M9uEr5E6wjEF2_BdtIDSevZAqQ3q-yJKfSw3TBmxg7x_2aIHEYvLIl-B5AHNApYDasewQxs-EKgCaALZBKQtvKW6cjBG7YINXakobg155osyyEQ-Hfm8WBv4iXYcdmSKx1BZ_4ZYIkWZkUQpCxj-KffGt5aTy8PpqcypBLlJxcA6-vOvsnRGt5M5jfyoEtlzH_ChZ6E4NcnGIQVVbg1T6_3ZbT3DM4B4oPDr40rS1e"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-2xl">
+<h1 class="text-display-lg font-display-lg text-primary mb-6">Connecting Coastal Potential with Digital Markets</h1>
+<p class="text-body-lg text-on-surface-variant mb-10 max-w-lg">Empowering artisanal communities in Aceh through sustainable Nipah palm innovation and global commerce.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md hover:opacity-90 transition-all scale-100 active:scale-95">Explore Marketplace</button>
+<button class="border border-primary text-primary px-8 py-4 rounded-lg font-label-md hover:bg-primary-fixed transition-all">Our Story</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Nipah Matters (Bento Style) -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="text-label-md text-secondary uppercase tracking-widest">Sustainability &amp; Heritage</span>
+<h2 class="text-display-lg font-display-lg text-primary mt-2">Why Nipah Matters</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-7 bg-surface-container-low rounded-xl p-12 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-md font-headline-md text-primary mb-4">Carbon Sequestration</h3>
+<p class="text-body-md text-on-surface-variant leading-relaxed">Nipah palms are unsung heroes of the coastline, capturing significant carbon while protecting shores from erosion. By valuing these forests, we incentivize their preservation.</p>
+</div>
+<div class="mt-12 flex items-end justify-between">
+<span class="material-symbols-outlined text-tertiary-container text-6xl" data-icon="eco">eco</span>
+<a class="text-primary font-label-md flex items-center gap-2 hover:underline" href="#">Learn about our ecology <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></a>
+</div>
+</div>
+<div class="md:col-span-5 bg-secondary-container rounded-xl p-8 relative overflow-hidden group">
+<img alt="Woven Craft" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="Close-up detail of a traditional woven Nipah palm basket, showing the intricate crisscross patterns and natural golden-brown textures. The lighting is soft and warm, highlighting the tactile quality of the artisanal craftsmanship. The background is a clean, minimalist cream, emphasizing the product's high-end boutique appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_AUMFRtSyJsfyqghuBVc9ZrEhAstc5lO6Iv_T91N5S5dsLU2an0_O9SGY7rSyASxkpJ4EnMRDsNX9sB_aMS0DZYHYAD-iB2DwB4kStr0kWRU6Jr0ZbLdLXfgC595PX_ZqltIRn_mV3Z5-IgsIgeYr9lTHAymqpq2B6fRPX8z8vsEV8I3u0kixMdLR0U7bUDFl-D4Jtk1UgZncwq8IyWmmugU1xgXTspYOo0zOXwMrhDoR5729B3vOMJ1_KqmLPc8NL5W1UWYDtTY"/>
+<div class="relative z-10 h-full flex flex-col justify-end">
+<h3 class="text-headline-sm font-headline-sm text-on-secondary-container mb-2">Artisanal Resilience</h3>
+<p class="text-body-md text-on-secondary-container">Centuries of Acehnese weaving tradition transformed into modern sustainable luxury.</p>
+</div>
+</div>
+<div class="md:col-span-5 bg-surface-container-high rounded-xl p-8">
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4">Waste Transformation</h3>
+<p class="text-body-md text-on-surface-variant">We turn underutilized palm sap into premium organic sweeteners, creating new revenue streams for coastal villages without damaging the ecosystem.</p>
+</div>
+<div class="md:col-span-7 bg-primary-container rounded-xl p-8 text-on-primary-container">
+<div class="flex gap-8 items-center h-full">
+<div class="flex-1">
+<h3 class="text-headline-sm font-headline-sm text-surface-bright mb-2">Digital Bridge</h3>
+<p class="text-body-md text-on-primary-container opacity-90">NipaHub provides the infrastructure for rural artisans to access global pricing, secure logistics, and fair trade certifications.</p>
+</div>
+<div class="w-32 h-32 bg-primary flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-surface-bright text-4xl" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-label-md text-secondary uppercase tracking-widest">Selected Works</span>
+<h2 class="text-display-lg font-display-lg text-primary mt-2">Artisanal Collections</h2>
+</div>
+<button class="text-primary font-label-md flex items-center gap-2 hover:gap-4 transition-all">View Full Marketplace <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span></button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-lg mb-4 relative">
+<img alt="Nipah Syrup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A premium glass jar of dark, rich Nipah palm syrup sitting on a polished wooden surface. Soft morning light creates elegant reflections on the glass. The background is a blurred lush green garden, evoking an organic and natural feel. The color palette is dominated by deep ambers and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqeMaOhhYrYlNiPh1lwI6TH84bTrNvCaO9lvlStoShePZ1BDB26j3ZlvUEspHRseALF5CscjmNJlKeDRMu4_WBbNQ7TKiwVpj3L1zQZ7Uy_1kKc2I-hZ9qCoFBpNwik5rATYy1wkfI1luT30ZFHtsmhBibNtQ_VtkZYG6dHT3tMjjGrkS3LIY75A3xcIuCJHkpoySRJto8pVvmuj9GUlZzmTwsWvGmLn7Bmm9o2o4e9IEa1zOBpbZvgcFLVcRimXRcBNUGIy5Ac8aX"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary text-label-sm px-3 py-1 rounded-full">Eco-Certified</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Organic Nipah Syrup</h3>
+<p class="text-body-md text-on-surface-variant mt-1">Rich, smoky caramel notes with low glycemic index.</p>
+<p class="text-label-md text-primary mt-2">$24.00</p>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-lg mb-4 relative">
+<img alt="Palm Crafts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Traditional woven Nipah leaf hats and baskets arranged artistically in a high-end boutique setting. The lighting is focused and warm, highlighting the precision of the weave and the natural variation in leaf color. The scene is elegant and minimalist, emphasizing the cultural heritage of Aceh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8zmu21vyRUsQkWW1GeISiCBQ-fHzrm1cF4iAca6d5zH0NOgL6mJc8ih_cdgtDqAXXlNCAnJ4D4-JJUhptTqN2-sOA-Ze-fXOP3UXAGcmz8Zbkz9uigkxG2mjA3Ne7PclCJjng5z-4Bdac8em1rTNhoGS3eN6M46T7YBSjgqA0YV7yesqqFHKl5SrdOjvO57L898ydA8GI_vhq_Hj-TF1yktFJa7pCz2U_BYyLsZV8qeQlHzHe5dbi4Bu-BD_AkRCh_w2V_KjfUOMa"/>
+<div class="absolute top-4 left-4 bg-secondary text-on-secondary text-label-sm px-3 py-1 rounded-full">Handmade</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Heritage Weave Basket</h3>
+<p class="text-body-md text-on-surface-variant mt-1">Sustainably harvested and hand-woven by village elders.</p>
+<p class="text-label-md text-primary mt-2">$68.00</p>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-lg mb-4 relative">
+<img alt="Palm Sugar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A heap of granulated Nipah palm sugar in a ceramic bowl. The texture is coarse and crystalline, with a warm sand-beige color. A wooden spoon rests in the bowl. The lighting is high-key and clean, suggesting a healthy and premium kitchen ingredient. The style is professional and appetizing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHj3QB0VQGzVmZqM4mc6MkPKBIseaULuDV0O7iDv9kqqvEUVHb_2-pEjsX06Kwc_jRK26iqnh6q6VXkhiybDMAEytIGkc_eyV8OKTcQY0RfG9NjNc1v3Dg56qaceE1KrTlHQYJYOnj38clKKDaDiC-uI0BhIQELRLXW_TinrHzmyDi8KLW88jPvlRKiPjq7HIwSrnz0P1ByjrBM6DD6nJcUysgRbHqgpFNFOOmVMiHTkkvTo479aoDLAksAp9Br0Vn6l7W0qzAO3kp"/>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Granulated Palm Sugar</h3>
+<p class="text-body-md text-on-surface-variant mt-1">Unrefined, mineral-rich sweetener for conscious kitchens.</p>
+<p class="text-label-md text-primary mt-2">$18.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About NipaHub -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="aspect-square rounded-full overflow-hidden border-[12px] border-surface-container">
+<img alt="Our Artisan" class="w-full h-full object-cover" data-alt="A portrait of an Acehnese artisan woman smiling while expertly weaving Nipah palm leaves. She is in a naturally lit outdoor workshop surrounded by greenery. The mood is authentic, dignified, and full of cultural pride. The photograph uses a shallow depth of field to keep the focus on her hands and expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATJtpevMwRc7eedPtWF0Rlf1GR91tO4SB7N_Ry0LAAt9ZCGcuOQKX9Ixhklr3KZsSepNC65dc0KX5zQKnL9UFS1bYvfGBc7foMaEA6LL2pvuQQaCG4fzXM-tBDmt7Ps32UI-THNVvOyG7-bKxr0--uuh_vVS3_GqiMMms-0iHb2Wc_EnWzjd6sf8q6fKR7doQbUdmIFH4ONR1KgN90GdIi1tZ8AvyAZYhjpWzslD05WnTNeWkE4xkhmgK5qiW_Z-Fy31tvBplabUtd"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-primary text-on-primary p-8 rounded-lg shadow-xl max-w-xs">
+<p class="text-headline-sm font-headline-sm italic">"NipaHub isn't just a shop; it's the lifeline that connects our village's past to the world's future."</p>
+<p class="text-label-md mt-4 opacity-80">— Amina, Lead Weaver</p>
+</div>
+</div>
+<div>
+<span class="text-label-md text-secondary uppercase tracking-widest">Our Mission</span>
+<h2 class="text-display-lg font-display-lg text-primary mt-2 mb-6">About NipaHub</h2>
+<div class="space-y-6 text-body-lg text-on-surface-variant">
+<p>Born in the coastal heart of Aceh, NipaHub was founded to bridge the gap between traditional mangrove-based livelihoods and the global digital economy.</p>
+<p>We believe that sustainability is only possible when the communities guarding our ecosystems are economically empowered. By optimizing the value chain of the Nipah palm, we protect our coastlines and preserve our culture.</p>
+</div>
+<button class="mt-10 text-primary font-label-md border-b-2 border-primary pb-1 hover:opacity-70 transition-opacity">Read Our Impact Report</button>
+</div>
+</section>
+<!-- Impact/SDGs Section -->
+<section class="py-24 bg-primary text-on-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-current" viewbox="0 0 100 100">
+<path d="M50 0 L100 50 L50 100 L0 50 Z"></path>
+</svg>
+</div>
+<div class="px-margin-desktop max-w-container-max mx-auto relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-display-lg font-display-lg mb-4">Our Global Commitment</h2>
+<p class="text-body-lg opacity-80 max-w-2xl mx-auto">We align our operations with the United Nations Sustainable Development Goals to ensure measurable positive change for people and planet.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- SDG 1 -->
+<div class="sdg-card bg-primary-container p-8 rounded-xl border border-on-primary-container/20 group hover:bg-on-primary-fixed-variant transition-colors duration-300">
+<div class="w-16 h-16 bg-[#E5243B] flex items-center justify-center rounded-lg mb-6 sdg-icon">
+<span class="text-white font-bold text-2xl">1</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-3">No Poverty</h3>
+<p class="text-body-md opacity-80">Increasing household income for coastal families by 40% through fair-trade market access.</p>
+</div>
+<!-- SDG 8 -->
+<div class="sdg-card bg-primary-container p-8 rounded-xl border border-on-primary-container/20 group hover:bg-on-primary-fixed-variant transition-colors duration-300">
+<div class="w-16 h-16 bg-[#A21942] flex items-center justify-center rounded-lg mb-6 sdg-icon">
+<span class="text-white font-bold text-2xl">8</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-3">Decent Work</h3>
+<p class="text-body-md opacity-80">Providing formal employment and digital literacy training to over 500 local artisans.</p>
+</div>
+<!-- SDG 12 -->
+<div class="sdg-card bg-primary-container p-8 rounded-xl border border-on-primary-container/20 group hover:bg-on-primary-fixed-variant transition-colors duration-300">
+<div class="w-16 h-16 bg-[#BF8B2E] flex items-center justify-center rounded-lg mb-6 sdg-icon">
+<span class="text-white font-bold text-2xl">12</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-3">Consumption</h3>
+<p class="text-body-md opacity-80">Promoting zero-waste production cycles and biodegradable packaging for every product.</p>
+</div>
+<!-- SDG 14 -->
+<div class="sdg-card bg-primary-container p-8 rounded-xl border border-on-primary-container/20 group hover:bg-on-primary-fixed-variant transition-colors duration-300">
+<div class="w-16 h-16 bg-[#0A97D9] flex items-center justify-center rounded-lg mb-6 sdg-icon">
+<span class="text-white font-bold text-2xl">14</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-3">Life Below Water</h3>
+<p class="text-body-md opacity-80">Protecting mangrove ecosystems which act as vital nurseries for marine biodiversity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Stories -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="flex justify-between items-center mb-16">
+<h2 class="text-display-lg font-display-lg text-primary">Community Stories</h2>
+<div class="flex gap-4">
+<button class="w-12 h-12 border border-outline rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" id="prevBtn">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-outline rounded-full flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" id="nextBtn">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter transition-transform duration-500 ease-in-out" id="storySlider">
+<!-- Story 1 -->
+<div class="min-w-[350px] md:min-w-[450px] group">
+<div class="bg-surface-container rounded-xl overflow-hidden mb-6 relative aspect-[16/10]">
+<img alt="Community Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A wide-angle shot of a vibrant Acehnese community center where men and women are working together under a wooden pavilion. Some are processing palm sap, while others are weaving. The atmosphere is productive and joyful. Warm afternoon light filters through the palm trees in the background. The aesthetic is documentary-style and high-quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMt67pDpzAHuG0MrzCTlfYXcmoMrcbdpRzBe6_q_WpE8QpFvuN4LWkE0Mnd6nsIuqY0Z2PDsXOcHeMgO9Q0hIDFKu4pkBlhOqidnc5O9_5wbfl-n0U3gSgpPDlo-qNqzFvvqVlBxqNuqUsDDnydYZ__ZQhnjeVFY11WKWVnyeuCZTw1jpAAVF3DllFnDjDChWIy-z-dpswgFaxQTgbaMBfoXCCS9wHFQH1Sx0mUAKJYTXT2wz-7D7sFVt3ZvHIEAeuNT6MxmwpQkIu"/>
+</div>
+<span class="text-label-sm text-secondary font-bold uppercase">Ulee Lheue Village</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mt-2">The Village that Saved its Mangroves</h3>
+<p class="text-body-md text-on-surface-variant mt-3">Discover how Ulee Lheue transitioned from illegal logging to sustainable Nipah harvesting, doubling their forest cover in five years.</p>
+</div>
+<!-- Story 2 -->
+<div class="min-w-[350px] md:min-w-[450px] group">
+<div class="bg-surface-container rounded-xl overflow-hidden mb-6 relative aspect-[16/10]">
+<img alt="Digital Literacy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up of a young artisan's hands holding a smartphone, showcasing the NipaHub dashboard with sales charts. In the background, traditional woven products are visible, creating a contrast between old-world craft and new-world technology. The lighting is crisp and modern, emphasizing digital empowerment and progress." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRALou0PN_jhpFG0Di3YygF12xeXyB9l82He9xTeNPDGirsA0FYDTyDusD1O2C-VfPBiHmrhs8rvULQYgfBLFJYzZmF71ocOjnfGoD12UOi39iHRvLevcUHEgGrrWULRqbQDvnMsFiVatZOU2nSsxG6PXT8ZTdiFHUXT52EKlUbyp-8n_mxhSF0vJn7Yb0_ZoQU8pvnCLG2cpUNt6ymiY1NCcJ4SABZdNNbobdeGI80TwdiP6Jjwcl3dwRhrZX1Ia5-z9rYEA_hVhb"/>
+</div>
+<span class="text-label-sm text-secondary font-bold uppercase">Digital Literacy</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mt-2">Breaking the Middleman Cycle</h3>
+<p class="text-body-md text-on-surface-variant mt-3">How digital training allowed Syarifah to bypass exploitative local wholesalers and sell her crafts directly to European collectors.</p>
+</div>
+<!-- Story 3 -->
+<div class="min-w-[350px] md:min-w-[450px] group">
+<div class="bg-surface-container rounded-xl overflow-hidden mb-6 relative aspect-[16/10]">
+<img alt="Reforestation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A wide landscape of a coastal restoration site where new Nipah saplings are being planted in neat rows along a river bank. The water is calm, reflecting a clear blue sky. The scene is hopeful and environmental, focused on long-term sustainability and the regrowth of Aceh's natural beauty. The color palette is fresh with blues and greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoAhA8lHV96W52HsvdPir8XxPrbt-LUjFETyiMVzzbddcrqCOTcyciyxoVxqK8sgx5CDMtOIftMh2pNGfYMOQ6daifavb0yFpRVHq4TRao4ENtKSb84X5bUgaC2s-VcqentRw_l_71lKhfYQa56DOrAtEHKnlzmteOsn8uJlcA0aXPySo5_BIhzt0Ig4IbCyWjqHwD7llHUghOaTOQ03K25sPN1FfhKgXOK7dcI0ZjgPJ6AYwYGA16TYNuGhN5Xf8BpnZkMOk7NGw-"/>
+</div>
+<span class="text-label-sm text-secondary font-bold uppercase">Restoration</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mt-2">Planting for the Next Century</h3>
+<p class="text-body-md text-on-surface-variant mt-3">Every purchase contributes to our reforestation fund. This year, we've planted 10,000 Nipah saplings across the coast.</p>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto mb-12">
+<div class="bg-surface-container-high rounded-3xl p-16 text-center border border-outline-variant">
+<h2 class="text-display-lg font-display-lg text-primary mb-6">Stay Connected to the Coast</h2>
+<p class="text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">Join our newsletter to receive stories from our artisans and early access to limited edition craft drops.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault()">
+<input class="flex-1 bg-surface-bright border border-outline rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="Enter your email" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md hover:opacity-90">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="mb-12 md:mb-0 max-w-xs">
+<div class="text-headline-sm font-headline-sm text-primary mb-6">NipaHub</div>
+<p class="text-body-md text-on-surface-variant mb-6">© 2024 NipaHub. Bridging artisanal Aceh with global sustainability.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="eco">eco</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-16">
+<div>
+<h4 class="font-label-md text-primary mb-6 uppercase tracking-wider">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Brand Story</a></li>
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Social Impact</a></li>
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-primary mb-6 uppercase tracking-wider">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">SDGs</a></li>
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Newsletter</a></li>
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Press Kit</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-primary mb-6 uppercase tracking-wider">Help</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Contact</a></li>
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">Shipping</a></li>
+<li><a class="text-on-surface-variant hover:underline decoration-primary font-label-md" href="#">FAQ</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-8 border-t border-outline-variant max-w-container-max mx-auto text-center md:text-left">
+<p class="text-label-sm text-on-surface-variant opacity-60">Proudly supporting Acehnese artisan communities. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Story Slider micro-interaction
+        const slider = document.getElementById('storySlider');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        let currentTranslate = 0;
+
+        nextBtn.addEventListener('click', () => {
+            const maxScroll = slider.scrollWidth - slider.parentElement.clientWidth;
+            if (Math.abs(currentTranslate) < maxScroll) {
+                currentTranslate -= 480;
+                slider.style.transform = `translateX(${currentTranslate}px)`;
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentTranslate < 0) {
+                currentTranslate += 480;
+                slider.style.transform = `translateX(${currentTranslate}px)`;
+            }
+        });
+
+        // Simple Fade-in effect on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Initial Hero state
+        setTimeout(() => {
+            document.querySelector('header').classList.remove('opacity-0');
+            document.querySelector('section').classList.remove('opacity-0', 'translate-y-10');
+            document.querySelector('section').classList.add('opacity-100', 'translate-y-0');
+        }, 100);
+    </script>
+</body></html>

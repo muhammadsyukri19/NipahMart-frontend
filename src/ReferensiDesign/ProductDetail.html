@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="light" lang="en" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <style class="">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .text-maroon {
+            color: #512828;
+        }
+
+        .bg-maroon {
+            background-color: #512828;
+        }
+
+        .border-sand {
+            border-color: #d6c2c1;
+        }
+
+        .bg-sand {
+            background-color: #f3e6d5;
+        }
+
+        /* Custom scrollbar for gallery */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#201b10",
+                        "on-secondary-fixed": "#321203",
+                        "on-primary-container": "#e8aba9",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-primary-fixed-variant": "#673a39",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fef2e0",
+                        "primary": "#512828",
+                        "inverse-surface": "#363024",
+                        "on-surface-variant": "#514443",
+                        "on-primary-fixed": "#331011",
+                        "secondary-fixed-dim": "#f6b99e",
+                        "tertiary-container": "#325227",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#f3e6d5",
+                        "surface-bright": "#fff8f2",
+                        "secondary-container": "#ffc1a6",
+                        "primary-fixed": "#ffdad8",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#201b10",
+                        "tertiary-fixed-dim": "#abd19a",
+                        "inverse-on-surface": "#fcefde",
+                        "background": "#fff8f2",
+                        "outline": "#837372",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f9ecdb",
+                        "tertiary-fixed": "#c7eeb5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#7a4d38",
+                        "tertiary": "#1c3b13",
+                        "on-tertiary-container": "#9fc48f",
+                        "primary-fixed-dim": "#f5b7b5",
+                        "outline-variant": "#d6c2c1",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f5b7b5",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#6b3e3d",
+                        "on-secondary-fixed-variant": "#663c28",
+                        "surface": "#fff8f2",
+                        "on-tertiary-fixed": "#032100",
+                        "on-tertiary-fixed-variant": "#2f4e24",
+                        "surface-variant": "#ede1d0",
+                        "secondary": "#82533d",
+                        "surface-tint": "#825150",
+                        "surface-container-highest": "#ede1d0",
+                        "surface-dim": "#e4d8c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style class="">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .text-maroon {
+            color: #512828;
+        }
+
+        .bg-maroon {
+            background-color: #512828;
+        }
+
+        .border-sand {
+            border-color: #d6c2c1;
+        }
+
+        .bg-sand {
+            background-color: #f3e6d5;
+        }
+
+        /* Custom scrollbar for gallery */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .woven-pattern {
+            background-color: #fff8f2;
+            background-image: radial-gradient(#d6c2c1 0.5px, transparent 0.5px);
+            background-size: 16px 16px;
+        }
+
+        .nipah-texture-bg {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_wMQoIIvWPWPS4_t3g0l5UrgQIxEbxv_8j4a1-CazisqUNjWeE4oVxjTJDIRME264qeu68gibRwANWppV5ovJMyTKkzCiOK_I562-5AbmrMPKzP9W0_Wj08WuNxk9-xsmzsv1GvPa3hUU00dFGJEni-2JI8P3UfZWqfzwxNDy11vZcE-T2ifT_V1ExUq-A4Ip5XdND1tibvedIJB_ps0LNmSblzraDYjP3xsixEMIfL2M9EG69gt2BQbnkU6johBpa9u-UtiOPN0m');
+            background-repeat: repeat;
+            background-size: 400px 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md">
+    <!-- TopNavBar -->
+    <header
+        class="bg-background dark:bg-on-surface border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+        <nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">NipaHub</div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-label-md font-label-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">Marketplace</a>
+                <a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">About Nipah</a>
+                <a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">Community</a>
+                <a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200"
+                    href="#">Education</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined text-on-surface cursor-pointer">search</span>
+                    <span class="material-symbols-outlined text-on-surface cursor-pointer">shopping_cart</span>
+                </div>
+                <button
+                    class="text-label-md font-label-md px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">Sign
+                    In</button>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-container-max mx-auto px-margin-desktop py-12">
+        <!-- Product Hero Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+            <!-- Gallery (7 cols) -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="aspect-[4/5] bg-surface-container overflow-hidden group relative">
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A premium, close-up studio shot of a handcrafted artisan bag made from woven Nipah palm leaves. The lighting is warm and sun-drenched, emphasizing the intricate tactile texture of the natural fibers. The background is a soft, minimalist sand beige. The overall aesthetic is high-end sustainable fashion, featuring earthy tones and organic materials."
+                        id="main-image"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIxRaNZUwVG1fKau14Ab1uup0SmIDpb5MzSBLBA9EBb4_TyXWZJ6YG87pk62S6ieBm5keqEtVlywXWboSH8e5m-z68jGnIEMoa_Jl9Sufz5AaLV9VapJKbyr2PqXdZbhWtbWV4mQi7nlgI8dN7H_oOXyFqhl2MvptRmUVwibxtHdBL_2mbT9z3j34qi_lw6Pc7QC9sR-YZKBVwYSyATQKEUT2xHYJVp-SVxgd5nyHMiz02ZJLjwxFHCIIXXgp5qTO700JgYNqlM6Rl">
+                    <div class="absolute top-4 right-4">
+                        <span
+                            class="bg-tertiary text-white px-4 py-1 text-label-sm font-label-sm rounded-full">Eco-Certified</span>
+                    </div>
+                </div>
+                <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+                    <div
+                        class="flex-shrink-0 w-24 h-24 border-2 border-primary cursor-pointer opacity-100 transition-all hover:opacity-100">
+                        <img class="w-full h-full object-cover"
+                            data-alt="A detailed macro shot of woven Nipah palm textures showing the natural grain and earthy brown highlights."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxk3N734YhMnQ7G4KzRKpqfLu-HlAIyLzJE2dLJML0yNeAzfm_TlLQzZaxuvk_z8oKYDNg8TlIUZhAGINqGQMgGpcnHkt4qXxqmTHo5ooGGtUTDj4hqe175nKKIlumMJVfXCmWL0mc-cUj16YXZGU5GnNqaaabrweDZp9rcxqGBlHxO0Keycd-YO3jfo7JrUI_1Wtwcj7sKeXWuMUNgpPv2gJ-wegH4kiKNxx4Z_IlFWwa1RY2BYeHPXdIllFAchFVs71CsEnMWjsb">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-24 h-24 border border-outline-variant cursor-pointer opacity-60 hover:opacity-100 transition-all">
+                        <img class="w-full h-full object-cover"
+                            data-alt="The lifestyle context of a woven palm product placed on a minimalist wooden table with soft morning light."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnzmONKZn-g5bBHz1JycmZaZdT2dwcyGY7PF-LQ1cBkiVsWigd-4RaOPpQUa5byLjf0U07FXll9btcC3C7_XGHXoOvSP5TBR6QUfyzEYgrWKhrbZIrOcjv5yrpMznM342XL49UZINERcUV4RXCXqd7TNi0dIWiy75q0zoxDoNAY1RYbJylTwGe2ngHY_JEauLi97m4PjMznYKEHmug3N4wrwX1Ihps-ym_Drycdu_WBaA9q48wnfY0oNMExT65f0h-6nDYnlkHBN3p">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-24 h-24 border border-outline-variant cursor-pointer opacity-60 hover:opacity-100 transition-all">
+                        <img class="w-full h-full object-cover"
+                            data-alt="An artisan in Aceh meticulously weaving palm fibers with expert precision, highlighting the handmade heritage."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAPciPg4vldzdxJHPc33gDReMxbPTO3OcqcSrKke0yyLL8BrVSflpvpe9qJQ4Jjb-lKJWPs7rQNNCsJ8keDdtIxz8W2_4d54xKJ3ek_B8oN-o1zoMVKEg6K69UK9_7xv03K3lQKYWkVASEQCkxjkDf6_mmS4BJuvzInE3hsFVtvwnHFwOIiUTES6xAB3WqyBGkRwpvZGPT49zBeNvoMEtQxQ9lSm50-QAK8LvTUkMo3851VCxFsVGy3stJ5UAdb6hLVgEd5zFj0AOI">
+                    </div>
+                </div>
+            </div>
+            <!-- Details (5 cols) -->
+            <div class="lg:col-span-5 flex flex-col justify-center">
+                <nav class="flex text-label-sm font-label-sm text-on-surface-variant gap-2 mb-4">
+                    <a href="#" class="">Marketplace</a> / <a href="#" class="">Accessories</a> / <a href="#"
+                        class="">Bags</a>
+                </nav>
+                <h1 class="font-headline-md text-headline-md text-primary mb-2">Artisanal Sabi Woven Clutch</h1>
+                <div class="flex items-center gap-4 mb-6">
+                    <p class="text-headline-sm font-headline-sm text-secondary">Rp 850,000</p>
+                    <span
+                        class="text-label-md font-label-md text-tertiary-container bg-tertiary-fixed px-3 py-0.5 rounded-full">Handmade
+                        in Aceh</span>
+                </div>
+                <p class="text-body-md font-body-md text-on-surface-variant mb-8 leading-relaxed">
+                    Crafted from sustainably harvested Nipah palm from the coastal mangroves of Aceh. Each clutch
+                    represents 12 hours of meticulous hand-weaving by women artisans, blending traditional techniques
+                    with modern minimalist design.
+                </p>
+                <div class="space-y-6 mb-10">
+                    <div>
+                        <span class="text-label-md font-label-md block mb-3">Quantity</span>
+                        <div class="flex items-center border border-outline w-fit px-2 py-1">
+                            <button class="p-2 hover:bg-surface-container-high transition-colors"
+                                onclick="decrement()"><span
+                                    class="material-symbols-outlined text-body-md">remove</span></button>
+                            <span class="px-6 font-semibold" id="qty">1</span>
+                            <button class="p-2 hover:bg-surface-container-high transition-colors"
+                                onclick="increment()"><span
+                                    class="material-symbols-outlined text-body-md">add</span></button>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button
+                            class="flex-1 bg-primary text-on-primary font-label-md py-4 rounded-lg hover:opacity-90 transition-opacity active:scale-[0.98]">Add
+                            to Marketplace Cart</button>
+                        <button
+                            class="px-4 border border-outline text-primary rounded-lg hover:bg-surface-container-low transition-colors"><span
+                                class="material-symbols-outlined">favorite</span></button>
+                    </div>
+                </div>
+                <div class="border-t border-outline-variant pt-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-tertiary">eco</span>
+                        <span class="text-label-md">100% Biodegradable Materials</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-tertiary">local_shipping</span>
+                        <span class="text-label-md">Free Global Carbon-Neutral Shipping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Traceability Section -->
+        <section class="py-24 border-t border-outline-variant">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-headline-md text-headline-md text-primary mb-4">Honest Traceability</h2>
+                <p class="text-body-md text-on-surface-variant">We believe in radical transparency. Follow the journey
+                    of your product from the mangrove forests to your doorstep.</p>
+            </div>
+            <div class="relative px-8 lg:px-24">
+                <!-- Timeline Line -->
+                <div class="absolute top-1/2 left-0 w-full h-[1px] bg-outline-variant hidden md:block"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+                    <!-- Farmer -->
+                    <div
+                        class="bg-surface-container p-8 text-center group hover:bg-primary hover:text-white transition-all duration-500 rounded-xl">
+                        <div
+                            class="w-16 h-16 bg-background rounded-full mx-auto flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-primary text-3xl">agriculture</span>
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm mb-2">The Farmer</h3>
+                        <p class="text-label-md mb-4 opacity-70">Ujong Batee Mangrove Community</p>
+                        <p class="text-body-md leading-relaxed">Sustainable harvesting of palm leaves that supports
+                            local ecosystem preservation.</p>
+                        <div
+                            class="mt-4 pt-4 border-t border-outline-variant group-hover:border-white/20 text-label-sm">
+                            Batch #NP-2024-08</div>
+                    </div>
+                    <!-- MSME -->
+                    <div
+                        class="bg-surface-container p-8 text-center group hover:bg-primary hover:text-white transition-all duration-500 rounded-xl">
+                        <div
+                            class="w-16 h-16 bg-background rounded-full mx-auto flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm mb-2">The MSME</h3>
+                        <p class="text-label-md mb-4 opacity-70">Rumoh Anyaman Aceh</p>
+                        <p class="text-body-md leading-relaxed">Artisan collective where materials are processed and
+                            woven into refined goods.</p>
+                        <div
+                            class="mt-4 pt-4 border-t border-outline-variant group-hover:border-white/20 text-label-sm">
+                            Artisan ID: AT-142</div>
+                    </div>
+                    <!-- Product -->
+                    <div
+                        class="bg-surface-container p-8 text-center group hover:bg-primary hover:text-white transition-all duration-500 rounded-xl">
+                        <div
+                            class="w-16 h-16 bg-background rounded-full mx-auto flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-primary text-3xl">shopping_bag</span>
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm mb-2">The Product</h3>
+                        <p class="text-label-md mb-4 opacity-70">NipaHub Premium Collection</p>
+                        <p class="text-body-md leading-relaxed">Quality assured and ready for global shipping to your
+                            doorstep.</p>
+                        <div
+                            class="mt-4 pt-4 border-t border-outline-variant group-hover:border-white/20 text-label-sm">
+                            Shipped from: Banda Aceh</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Seller Story & Impact -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant mb-24">
+            <div class="bg-background p-12 lg:p-20">
+                <div class="max-w-md">
+                    <h2 class="font-headline-sm text-headline-sm text-primary mb-6">Seller Story: Cut Nur</h2>
+                    <p class="text-body-lg font-body-lg text-on-surface mb-6 italic leading-relaxed">
+                        "Weaving is more than survival for us; it is how we tell our stories. NipaHub has given our
+                        village a bridge to the world."
+                    </p>
+                    <p class="text-body-md text-on-surface-variant">
+                        Cut Nur leads a collective of 25 women in coastal Aceh. By joining NipaHub, they have increased
+                        their household income by 300%, allowing their children to attend university while keeping the
+                        centuries-old weaving tradition alive.
+                    </p>
+                </div>
+            </div>
+            <div class="bg-surface-container-high p-12 lg:p-20 relative overflow-hidden">
+                <div class="max-w-md relative z-10">
+                    <h2 class="font-headline-sm text-headline-sm text-primary mb-6">Social Impact</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <span class="material-symbols-outlined text-tertiary">water_drop</span>
+                            <div>
+                                <h4 class="font-bold text-label-md">Coastal Restoration</h4>
+                                <p class="text-body-md text-on-surface-variant">5% of every sale goes directly to
+                                    mangrove reforestation programs in Northern Aceh.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="material-symbols-outlined text-tertiary">female</span>
+                            <div>
+                                <h4 class="font-bold text-label-md">Women Empowerment</h4>
+                                <p class="text-body-md text-on-surface-variant">Providing fair-wage employment to rural
+                                    women artisans in underserved coastal areas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative element -->
+                <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            </div>
+        </section>
+        <!-- Related Products -->
+        <section>
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="font-headline-md text-headline-md text-primary">Related Artisanal Goods</h2>
+                <a class="text-label-md font-label-md text-primary border-b border-primary pb-1" href="#">Browse All</a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+                <!-- Product Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] bg-surface-container overflow-hidden mb-4 rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="A minimalist woven storage basket made from palm leaf, styled in a bright modern home setting with a serene atmosphere and soft light. The design is elegant, featuring a warm color palette of cream and natural fiber browns."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfSG4A1hIMMtCcOj10VbfhO7GQEPBSbO_Yff2agRIV0WS-ATuUYN_RrWS7UVZdpH218xOxfKY4jzefyw8K5haa1oa32ajGhZXhWJMlMEZ_JEwunczJ7rB7f1she-4v2jd8vXHYbGw6jCoEQxj-Q6amYBeCBHSzl20HrHVyPwn-AvFV8vVlp7xvfuihhWyJkTljyL1qR8RCRuZ8Uy49l3Qij0ztPrO4ZdsjF-ZrN3MAZ86qdLE_QOjamz2qBgGRhU9kk-BwoZjjWsBP">
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] leading-tight mb-1">Nipah Woven Basket</h3>
+                    <p class="text-label-md text-secondary">Rp 450,000</p>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] bg-surface-container overflow-hidden mb-4 rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Premium hand-woven palm coasters set on a luxury dark wood table. The lighting is moody yet clear, emphasizing the fine artisanal craft and the organic beauty of the material."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxpEDA_BfxFd0KVEueYR4NAV4kPiVldu_IkyMHFuHwhUQhvsShi52iYg8P-WuMy7TtBQG4QI1Fcg5FgKt93SccMcbXyGXsxYLmn3jW0s08x9oLCUUfkAKz8Vkc3bN8VNsvPAF1ZdGhCBo5goa9NGApnIM5Mrs2UMzY2VWLQofG8qNRJxPu__iQyB2iKmcQLFMmGVTx8l21yXmkc2gulu58KWJ7b0sp3LC6wefOndC3zaZfRotojBNULJOuNDFcj_Bzso4geQbK1gtQ">
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] leading-tight mb-1">Set of 4 Coasters</h3>
+                    <p class="text-label-md text-secondary">Rp 120,000</p>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] bg-surface-container overflow-hidden mb-4 rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="A high-end woven table runner showcasing complex geometric patterns inspired by Aceh heritage. The image is bright and clean with a focus on textile detail and sustainable luxury."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXyMSchglOPQR8ZDpShkWRfGc0GsKW1JDUKtH303a9cCNCp5J_y0OD3dXJlnLrfylmaO6474ybyKRpjEgrfn9rXnBcThzJmDDsns8x5VxKY24GoTacHM759XZtZL0lPMe8B6Nn29bngiFqZt3toJw3how6BD0tIS0UEK5ofviz3qFt5PlMzQdbRKhjukW9L3k0oaQZQG6TZhOlMuX62LjAp-NS6_7i11fyeYvoZbvpyNi5t4YP--27QdCGQpQj7ovee-Qqp6qtCzZU">
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] leading-tight mb-1">Ceremonial Table Runner</h3>
+                    <p class="text-label-md text-secondary">Rp 1,200,000</p>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] bg-surface-container overflow-hidden mb-4 rounded-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="A sophisticated handcrafted wall hanging made of natural fibers. Minimalist gallery aesthetic, soft earth tones, and impeccable craftsmanship."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjn4L3XrZaEpdirS3Owx-5-jxhZ8YfO4SiQkv8RdmST32-ZN2oTwUZKGL4iyRe2gWRWJ0xidst4_0AcRL9o5pxwlQV8vTiLF9f_085LMCi8rWoGL-9eS2WwZBwdJUCZVTMUoJ8xILj5UI6u2I0Qw1CMsDM1A6LkFBa1JLjh3Fgn25i4yxGHVqQvCk9iLvM-feZVOjoqr-VwgDE_A_41gz6QPLDMNeBnbiMd1ScHbUOilAqq-gAP1mbJpPu8JmXQRriPUNoITvOjBUt">
+                    </div>
+                    <h3 class="font-headline-sm text-[18px] leading-tight mb-1">Mangrove Tapestry</h3>
+                    <p class="text-label-md text-secondary">Rp 980,000</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-high dark:bg-on-surface border-t border-outline-variant">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop py-12 max-w-container-max mx-auto">
+            <div class="mb-8 md:mb-0">
+                <div class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed mb-4">NipaHub</div>
+                <p class="text-body-md font-body-md text-on-surface-variant max-w-xs">© 2024 NipaHub. Bridging artisanal
+                    Aceh with global sustainability.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="flex flex-col gap-3">
+                    <span class="text-label-md font-bold mb-2">Company</span>
+                    <a class="text-label-md hover:underline decoration-primary" href="#">Brand Story</a>
+                    <a class="text-label-md hover:underline decoration-primary" href="#">Social Impact</a>
+                    <a class="text-label-md hover:underline decoration-primary" href="#">SDGs</a>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <span class="text-label-md font-bold mb-2">Support</span>
+                    <a class="text-label-md hover:underline decoration-primary" href="#">Newsletter</a>
+                    <a class="text-label-md hover:underline decoration-primary" href="#">Contact</a>
+                    <a class="text-label-md hover:underline decoration-primary" href="#">Shipping Info</a>
+                </div>
+                <div class="hidden lg:flex flex-col gap-4">
+                    <span class="text-label-md font-bold">Join the Movement</span>
+                    <div class="flex border border-outline">
+                        <input class="bg-transparent border-none text-label-md px-4 py-2 w-full focus:ring-0"
+                            placeholder="Email address" type="email">
+                        <button class="bg-primary text-white px-4 hover:opacity-90">Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        let count = 1;
+        const qtyDisplay = document.getElementById('qty');
+
+        function increment() {
+            count++;
+            qtyDisplay.innerText = count;
+        }
+
+        function decrement() {
+            if (count > 1) {
+                count--;
+                qtyDisplay.innerText = count;
+            }
+        }
+
+        // Simple gallery switcher
+        document.querySelectorAll('.flex-shrink-0').forEach(thumb => {
+            thumb.addEventListener('click', function () {
+                const mainImg = document.getElementById('main-image');
+                const newSrc = this.querySelector('img').src.replace('240', '2070');
+                mainImg.src = newSrc;
+
+                document.querySelectorAll('.flex-shrink-0').forEach(t => {
+                    t.classList.remove('border-primary', 'opacity-100');
+                    t.classList.add('border-outline-variant', 'opacity-60');
+                });
+                this.classList.add('border-primary', 'opacity-100');
+                this.classList.remove('border-outline-variant', 'opacity-60');
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

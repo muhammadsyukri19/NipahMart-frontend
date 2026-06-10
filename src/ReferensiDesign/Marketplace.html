@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NipaHub Marketplace | Sustainable Artisanal Aceh</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#201b10",
+                        "on-secondary-fixed": "#321203",
+                        "on-primary-container": "#e8aba9",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-primary-fixed-variant": "#673a39",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fef2e0",
+                        "primary": "#512828",
+                        "inverse-surface": "#363024",
+                        "on-surface-variant": "#514443",
+                        "on-primary-fixed": "#331011",
+                        "secondary-fixed-dim": "#f6b99e",
+                        "tertiary-container": "#325227",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#f3e6d5",
+                        "surface-bright": "#fff8f2",
+                        "secondary-container": "#ffc1a6",
+                        "primary-fixed": "#ffdad8",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#201b10",
+                        "tertiary-fixed-dim": "#abd19a",
+                        "inverse-on-surface": "#fcefde",
+                        "background": "#fff8f2",
+                        "outline": "#837372",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f9ecdb",
+                        "tertiary-fixed": "#c7eeb5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#7a4d38",
+                        "tertiary": "#1c3b13",
+                        "on-tertiary-container": "#9fc48f",
+                        "primary-fixed-dim": "#f5b7b5",
+                        "outline-variant": "#d6c2c1",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#f5b7b5",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#6b3e3d",
+                        "on-secondary-fixed-variant": "#663c28",
+                        "surface": "#fff8f2",
+                        "on-tertiary-fixed": "#032100",
+                        "on-tertiary-fixed-variant": "#2f4e24",
+                        "surface-variant": "#ede1d0",
+                        "secondary": "#82533d",
+                        "surface-tint": "#825150",
+                        "surface-container-highest": "#ede1d0",
+                        "surface-dim": "#e4d8c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d6c2c1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-background border-b border-outline-variant fixed top-0 left-0 right-0 z-50">
+        <div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="flex items-center gap-12">
+                <a class="text-headline-md font-headline-md font-bold text-primary" href="#">NipaHub</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-primary border-b-2 border-primary pb-1 text-label-md font-label-md transition-colors duration-200"
+                        href="#">Marketplace</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md"
+                        href="#">About Nipah</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md"
+                        href="#">Community</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 text-label-md font-label-md"
+                        href="#">Education</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative hidden lg:block w-64">
+                    <input
+                        class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 focus:outline-none focus:border-primary text-body-md"
+                        placeholder="Search artisanal goods..." type="text" />
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="text-on-surface-variant hover:text-primary transition-opacity active:opacity-80">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <button class="text-on-surface-variant hover:text-primary transition-opacity active:opacity-80">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </button>
+                    <button
+                        class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:opacity-90 transition-all active:scale-95">
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-24 pb-20 max-w-container-max mx-auto px-margin-desktop min-h-screen">
+        <!-- Marketplace Header -->
+        <header class="mb-12">
+            <h1 class="font-headline-md text-headline-md text-on-surface mb-2">Artisanal Marketplace</h1>
+            <p class="text-on-surface-variant font-body-lg">Discover ethical palm-based products handcrafted in the
+                heart of Aceh.</p>
+        </header>
+        <div class="flex flex-col md:flex-row gap-gutter">
+            <!-- Sidebar Filters -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="sticky top-28 space-y-10">
+                    <!-- Categories -->
+                    <div>
+                        <h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-4">
+                            Category</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center group cursor-pointer">
+                                <input class="rounded-sm border-outline text-primary focus:ring-primary h-4 w-4"
+                                    type="checkbox" />
+                                <span
+                                    class="ml-3 text-body-md text-on-surface group-hover:text-primary transition-colors">Sugar</span>
+                            </label>
+                            <label class="flex items-center group cursor-pointer">
+                                <input class="rounded-sm border-outline text-primary focus:ring-primary h-4 w-4"
+                                    type="checkbox" />
+                                <span
+                                    class="ml-3 text-body-md text-on-surface group-hover:text-primary transition-colors">Syrup</span>
+                            </label>
+                            <label class="flex items-center group cursor-pointer">
+                                <input class="rounded-sm border-outline text-primary focus:ring-primary h-4 w-4"
+                                    type="checkbox" />
+                                <span
+                                    class="ml-3 text-body-md text-on-surface group-hover:text-primary transition-colors">Food</span>
+                            </label>
+                            <label class="flex items-center group cursor-pointer">
+                                <input class="rounded-sm border-outline text-primary focus:ring-primary h-4 w-4"
+                                    type="checkbox" />
+                                <span
+                                    class="ml-3 text-body-md text-on-surface group-hover:text-primary transition-colors">Crafts</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Price Range -->
+                    <div>
+                        <h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-4">
+                            Price Range</h3>
+                        <div class="px-2">
+                            <input
+                                class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary"
+                                type="range" />
+                            <div class="flex justify-between mt-3 text-label-sm font-label-sm text-on-surface-variant">
+                                <span>$0</span>
+                                <span>$500+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Verification Status -->
+                    <div>
+                        <h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-4">
+                            Seller Status</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center group cursor-pointer">
+                                <input class="rounded-full border-outline text-primary focus:ring-primary h-4 w-4"
+                                    name="status" type="radio" />
+                                <span
+                                    class="ml-3 text-body-md text-on-surface group-hover:text-primary transition-colors flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px] text-tertiary"
+                                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Verified Only
+                                </span>
+                            </label>
+                            <label class="flex items-center group cursor-pointer">
+                                <input checked=""
+                                    class="rounded-full border-outline text-primary focus:ring-primary h-4 w-4"
+                                    name="status" type="radio" />
+                                <span
+                                    class="ml-3 text-body-md text-on-surface group-hover:text-primary transition-colors">All
+                                    Sellers</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Sustainability Tags -->
+                    <div>
+                        <h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-4">
+                            Eco-Impact</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-label-sm rounded-full cursor-pointer hover:bg-tertiary-fixed-dim transition-colors">Plastic
+                                Free</span>
+                            <span
+                                class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-label-sm rounded-full cursor-pointer hover:bg-outline-variant transition-colors">Zero
+                                Carbon</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Product Grid -->
+            <section class="flex-grow">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <article
+                        class="group relative bg-surface-container-low border border-transparent hover:border-outline-variant transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] overflow-hidden relative">
+                            <img alt="Nipa Sugar"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="A macro lifestyle shot of premium organic Nipa palm sugar crystals in a handcrafted ceramic bowl. The lighting is warm and sun-drenched, reflecting an earthy elegance. Soft shadows fall across a textured linen tablecloth. The color palette features deep browns, creams, and golden amber tones, emphasizing a sustainable, artisanal marketplace aesthetic."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyweYoVyX0l_Yfp9dKNs_ynyzmXuXzFJiPPF1szhDTwtX_x6MkaLd0TgzEDB0-2fYs2LCRGcW1olcQcpLIgFcmj7sfqCf2iAco3mkwEomnyuM7hdHoXg0s8KlZ2lgLV2QYrlVTwkZzjGK76lFDREj3JZRKXoXuPBPoF-hUfYI7gdU4GP8r1r0szOxLfI1gRQo1qPJlcEaMSLzLMHLMs28tTjnZh3LNLEDkFhIEkquFt-SrfkkUCzud9qAdYuhRB0oplJ159WKx1Nbf" />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-tertiary text-on-tertiary text-label-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Verified Seller
+                                </span>
+                            </div>
+                            <button
+                                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg">
+                                <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-1">
+                                <h2
+                                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                                    Golden Nipa Granules</h2>
+                                <p class="font-headline-sm text-headline-sm text-primary">$18.50</p>
+                            </div>
+                            <p class="text-on-surface-variant text-body-md mb-4 flex-grow">100% natural palm nectar,
+                                crystallized through traditional Acehnese methods.</p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm">Food</span>
+                                <span class="text-on-surface-variant text-label-sm">By Artisans of Lhoknga</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 2 -->
+                    <article
+                        class="group relative bg-surface-container-low border border-transparent hover:border-outline-variant transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] overflow-hidden relative">
+                            <img alt="Nipa Syrup"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="An artisanal clear glass bottle filled with rich, dark amber Nipa palm syrup. The bottle sits on a weathered wooden surface with palm leaves in the blurred background. Natural morning light creates high-end highlights on the glass. The scene is professional, airy, and evokes a boutique sustainable brand identity from Aceh."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzHEavl2hJOsI-OVay6OWCN3p7nYp_CDox8RKtcwnHbwElC9YzzY8tI9tZcr_BPe0Xd4a6iNmlv-PdT59c40hmSLTeoY5KfgJrK6JlY7Z4563Y5La-yx5Ms0T-Eed7QyXrbsd53IuLbt3iq1rhYDeR56gtr-86ovvHWbdH_JI-UfPpNF1CaGrY1Vv8riTINnEjmExCiUhefEa7jIkTjN4Kh6VMa8QWqiMkmXXgNi4vyafMoteUfocZKYHjLm_YITvqLbJjNaEX-DrY" />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-tertiary text-on-tertiary text-label-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Verified Seller
+                                </span>
+                            </div>
+                            <button
+                                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg">
+                                <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-1">
+                                <h2
+                                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                                    Mangrove Essence Syrup</h2>
+                                <p class="font-headline-sm text-headline-sm text-primary">$24.00</p>
+                            </div>
+                            <p class="text-on-surface-variant text-body-md mb-4 flex-grow">Low-glycemic alternative for
+                                specialty coffee and traditional desserts.</p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm">Syrup</span>
+                                <span class="text-on-surface-variant text-label-sm">Syiah Kuala Collective</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 3 -->
+                    <article
+                        class="group relative bg-surface-container-low border border-transparent hover:border-outline-variant transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] overflow-hidden relative">
+                            <img alt="Palm Basket"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Close up of a hand-woven basket made from dried Nipa palm leaves. The intricate weaving pattern is visible, showcasing skilled craftsmanship. The background is a clean, neutral cream studio setting with soft organic shadows. The overall aesthetic is minimalist, earthy, and premium, representing the cultural pride and sustainability of Aceh."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKPpO8foPrN2445wzDNwVWvJPxk527twKQu1DYfhUk_yHVYQT8ox_A0f-L73LcQT8NUojJ7SSt_UkU9yUd-ApBVNsESzXKk4ETxSOfy2XRLx__YhKZFcco89XZEgxWMBgVbNQ39FggnE_JGg8GrrccFg4A7NR3a5FqFK41zKE-brJK1Wpcjh_IYj3ZRI2DfEv_5OOqRQYnUPw8XkAwsyw9qvfeD5nYec_LvodmwPGsarKBjH07OjjMiwpfSfsyk8WvrOKQPAkoMe5W" />
+                            <button
+                                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg">
+                                <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-1">
+                                <h2
+                                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                                    Coastal Woven Tray</h2>
+                                <p class="font-headline-sm text-headline-sm text-primary">$45.00</p>
+                            </div>
+                            <p class="text-on-surface-variant text-body-md mb-4 flex-grow">Durable, eco-friendly storage
+                                tray woven by master coastal artisans.</p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm">Crafts</span>
+                                <span class="text-on-surface-variant text-label-sm">Aceh Jaya Studio</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 4 -->
+                    <article
+                        class="group relative bg-surface-container-low border border-transparent hover:border-outline-variant transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] overflow-hidden relative">
+                            <img alt="Nipa Sweets"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Traditional Acehnese sweets made with Nipa palm sugar, arranged elegantly on a wooden platter. The food is styled with small mangrove leaf garnishes. The mood is warm and inviting, using a palette of earthy reds, tans, and deep browns. Lighting is soft and atmospheric, highlighting the tactile texture of the artisanal food."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjtkTPTZ8Hp6T4vVACuk6kw_kWkGN75SbGUcdEx0ifwthfDzGM4TPOOWRcaLhQxYTOlR31ED8xZm5GDxMd1_omgV0Q5GdBK_-a-lPxY4aKq9epJ8C0DKumE1neSayrAdye6xiRahIeEKGHpKTKArJ_wKknufzPzzJ_ig2UvNdwTZC96JyGdhvKxfC3FX_JZqcMUSq1CdfhaAuV1wTT8FvbkIoczKTytrZau1dj5b18HTNA7LEBL40y65asSuRjSq9oOUsJ4UzHQa68" />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-tertiary text-on-tertiary text-label-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Verified Seller
+                                </span>
+                            </div>
+                            <button
+                                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg">
+                                <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-1">
+                                <h2
+                                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                                    Meuseukat Nipah</h2>
+                                <p class="font-headline-sm text-headline-sm text-primary">$12.00</p>
+                            </div>
+                            <p class="text-on-surface-variant text-body-md mb-4 flex-grow">A rare heritage delicacy,
+                                slow-cooked for 8 hours with pure Nipa sap.</p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm">Food</span>
+                                <span class="text-on-surface-variant text-label-sm">Nenek's Heritage Kitchen</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 5 -->
+                    <article
+                        class="group relative bg-surface-container-low border border-transparent hover:border-outline-variant transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] overflow-hidden relative">
+                            <img alt="Nipa Fiber Decor"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="A minimalist set of coasters made from pressed Nipa palm fiber, stacked on a clean marble countertop. The lighting is bright and modern, creating sharp, elegant shadows. The visual language is one of refined warmth and contemporary sustainability, targeting high-end retail shoppers interested in ethical craftsmanship."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9PDnUayxYJi0nYfzWoWuN1Lhn_YaU-a8HUlcUGe5Uoo8jqA9_JUEXvfywF1AqGZZHui_ZKJsA3THh1ddMVu91BPX6txy3ZZ-BjtpmUMrid9ItvfM2wh6EOvSjo-gXqSYnWZKx1p17cKeTuRDdky12_Xjv47xQe1D_qfQqrKhG8TnfCbJsx5mFGTWKyUNRpetTuAsT6FW9DvOU3ibeV9EOe7mp1HSK8PjuF2s5GDfiZKch8cpQIcLIlQAes9yv_YYqBsT32HlWldW_" />
+                            <button
+                                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg">
+                                <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-1">
+                                <h2
+                                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                                    Pressed Fiber Coasters</h2>
+                                <p class="font-headline-sm text-headline-sm text-primary">$32.00</p>
+                            </div>
+                            <p class="text-on-surface-variant text-body-md mb-4 flex-grow">Set of 4 heat-resistant
+                                coasters created from recycled Nipa processing waste.</p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm">Crafts</span>
+                                <span class="text-on-surface-variant text-label-sm">EcoNipah Labs</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 6 -->
+                    <article
+                        class="group relative bg-surface-container-low border border-transparent hover:border-outline-variant transition-all duration-300 rounded-lg overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] overflow-hidden relative">
+                            <img alt="Raw Nipa Blocks"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="A rustic display of various raw Nipa palm sugar blocks in different sizes and shapes on a burlap cloth. The lighting is dramatic and warm, like late afternoon sun in a tropical Aceh village. The composition is artistic and tactile, emphasizing the handmade, artisanal quality of the food products in the marketplace."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH2JlZzvWSGlZ8N8kxrW2EevgqoYu77YFn6t0uyeMdae1YByS5jhnipt_bZfTOl4bR4OWZNaFVduDxB8RcOWusIQKE0IT5Ot2Sf_lOr8yRFjBpgQBGztemmq_6IMjywqJ0pDJgP7GfN7cv6HKprsi6jhX9XumJ4hxXtyPplHyrt8xw2JLyRAb-7HOXeCWa4uxQav7BYu-cuy7KhIREOIp6t3T3zFdB9R_J2rUN44KxayHmNPjheFPh8lTy51C3RWe6NYbqwluyJc7U" />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-tertiary text-on-tertiary text-label-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Verified Seller
+                                </span>
+                            </div>
+                            <button
+                                class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 shadow-lg">
+                                <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                            </button>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-1">
+                                <h2
+                                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                                    Artisanal Sugar Blocks</h2>
+                                <p class="font-headline-sm text-headline-sm text-primary">$15.00</p>
+                            </div>
+                            <p class="text-on-surface-variant text-body-md mb-4 flex-grow">Traditional block sugar,
+                                perfect for grating over morning porridge or tea.</p>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm">Sugar</span>
+                                <span class="text-on-surface-variant text-label-sm">Banda Aceh Cooperatives</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- Pagination -->
+                <nav class="flex justify-center mt-16 gap-2">
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-md">1</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors font-label-md">2</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors font-label-md">3</button>
+                    <span class="flex items-center px-2 text-on-surface-variant">...</span>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors font-label-md">12</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </nav>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-high border-t border-outline-variant">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start w-full px-margin-desktop py-16 max-w-container-max mx-auto gap-12">
+            <div class="max-w-sm">
+                <a class="text-headline-sm font-headline-sm text-primary mb-6 block" href="#">NipaHub</a>
+                <p class="text-on-surface-variant text-body-md mb-8">
+                    Bridging artisanal Aceh with global sustainability. Empowering coastal communities through the
+                    ethical cultivation of the Nipa palm.
+                </p>
+                <div class="flex gap-6">
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined">public</span>
+                    </a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-12 w-full md:w-auto">
+                <div>
+                    <h4 class="font-label-md text-label-md uppercase tracking-wider text-on-surface mb-6">Marketplace
+                    </h4>
+                    <ul class="space-y-4 text-on-surface-variant text-body-md">
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">All Products</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">New Arrivals</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Verified Sellers</a>
+                        </li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-label-md text-label-md uppercase tracking-wider text-on-surface mb-6">NipaHub</h4>
+                    <ul class="space-y-4 text-on-surface-variant text-body-md">
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Brand Story</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Social Impact</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">SDGs</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 lg:col-span-1">
+                    <h4 class="font-label-md text-label-md uppercase tracking-wider text-on-surface mb-6">Support</h4>
+                    <ul class="space-y-4 text-on-surface-variant text-body-md">
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Contact</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Shipping Policy</a>
+                        </li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Returns</a></li>
+                        <li><a class="hover:underline decoration-primary transition-all" href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div
+            class="border-t border-outline-variant/30 py-8 px-margin-desktop max-w-container-max mx-auto text-center md:text-left">
+            <p class="text-label-sm font-label-sm text-on-surface-variant/70">
+                © 2024 NipaHub. Bridging artisanal Aceh with global sustainability. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- Micro-interaction script -->
+    <script>
+        // Simple search focus effect
+        const searchInputs = document.querySelectorAll('input[type="text"]');
+        searchInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('ring-2', 'ring-primary/20');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('ring-2', 'ring-primary/20');
+            });
+        });
+
+        // Add subtle hover tracking for cards
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+
+</html>

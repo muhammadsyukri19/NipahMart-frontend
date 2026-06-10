@@ -8,7 +8,17 @@ Proyek ini menggunakan arsitektur modern Next.js App Router dengan TypeScript. B
 
 ```text
 src/
-├── app/          # App Router Next.js (halaman, layout, route API)
+├── app/          # App Router Next.js
+│   └── (pages)/      # Route groups untuk memisahkan layout
+│       ├── (auth)/       # Halaman autentikasi (login, register, dll)
+│       │   ├── forgot-password/
+│       │   ├── login/
+│       │   ├── register/
+│       │   └── reset-password/
+│       └── (private)/    # Halaman proteksi sesuai role
+│           ├── admin/
+│           ├── pembeli/
+│           └── petani/
 ├── assets/       # Aset statis seperti gambar, font, dan ikon
 ├── components/   # Komponen UI React yang dapat digunakan ulang
 │   ├── common/       # Komponen umum (Button, Input, dll)
