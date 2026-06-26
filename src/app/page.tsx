@@ -9,16 +9,12 @@ import { SdgsSection } from '@/components/landing/SdgsSection';
 import { CommunityStoriesSection } from '@/components/landing/CommunityStoriesSection';
 import { NewsletterSection } from '@/components/landing/NewsletterSection';
 
-// ============================================================
-// Landing Page
-// ============================================================
-
 export default function LandingPage() {
   return (
     <>
-      <Navbar activePath="/" variant="fixed" />
+      <Navbar />
 
-      <main className="pt-20" id="main-content">
+      <main className="pt-16" id="main-content">
         <HeroSection />
         <WhyNipahSection />
         <FeaturedProductsSection />

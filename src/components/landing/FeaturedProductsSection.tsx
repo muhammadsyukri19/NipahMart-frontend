@@ -1,40 +1,68 @@
 import React from 'react';
 import Link from 'next/link';
-import { SectionLabel } from '@/components/ui/SectionLabel';
-import { Icon } from '@/components/ui/Icon';
-import { ProductCard } from '@/components/common/ProductCard';
-import { FEATURED_PRODUCTS } from '@/constants/products';
-
-// ============================================================
-// FeaturedProductsSection Organism
-// ============================================================
 
 export function FeaturedProductsSection() {
   return (
-    <section className="py-24 bg-[var(--color-surface-container-lowest)]" aria-label="Featured artisanal collections">
-      <div className="px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max)] mx-auto">
+    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
+      <div className="max-w-[1440px] mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
-            <SectionLabel text="Selected Works" />
-            <h2 className="font-[var(--font-heading)] text-[48px] font-[700] leading-[56px] tracking-[-0.02em] text-[var(--color-primary)] mt-2">
-              Artisanal Collections
+            <p className="text-[12px] tracking-[0.2em] uppercase text-secondary mb-3">Koleksi Pilihan</p>
+            <h2 className="font-serif text-[34px] md:text-[44px] font-bold text-primary-dark leading-tight">
+              Koleksi Pengrajin
             </h2>
           </div>
-          <Link
-            href="/marketplace"
-            className="text-[var(--color-primary)] text-[14px] font-[600] tracking-[0.05em] flex items-center gap-2 hover:gap-4 transition-all"
-          >
-            View Full Marketplace
-            <Icon name="shopping_bag" size="sm" aria-hidden="true" />
+          <Link href="/marketplace" className="text-[13px] text-on-surface-variant hover:text-primary-dark flex items-center gap-1.5 transition-colors pb-1">
+            Lihat Semua Produk <span>→</span>
           </Link>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {FEATURED_PRODUCTS.map((product) => (
-            <ProductCard key={product.id} product={product} showAddToCart={false} />
-          ))}
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {/* Product 1 */}
+          <Link href="/product/sirup-nipah" className="group block">
+            <div className="aspect-[4/5] bg-[#F3EEE6] relative overflow-hidden rounded-lg mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1587049352847-4d4b1263d596?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Sirup Nipah Organik"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <span className="absolute top-3 left-3 bg-[#4A6B35] text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest rounded-sm">Terlaris</span>
+            </div>
+            <h3 className="font-serif text-[20px] font-bold text-primary-dark mb-1">Sirup Nipah Organik</h3>
+            <p className="text-[14px] text-on-surface-variant leading-[1.5] mb-2 line-clamp-2">100% alami, pemanis rendah glikemik dari nira nipah liar.</p>
+            <p className="text-[15px] font-semibold text-primary-dark">Rp180.000</p>
+          </Link>
+
+          {/* Product 2 */}
+          <Link href="/product/keranjang-anyaman" className="group block">
+            <div className="aspect-[4/5] bg-[#F3EEE6] relative overflow-hidden rounded-lg mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1590736969955-71cc94801759?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Keranjang Anyaman Warisan"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <span className="absolute top-3 left-3 bg-[#8A5A44] text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest rounded-sm">Buatan Tangan</span>
+            </div>
+            <h3 className="font-serif text-[20px] font-bold text-primary-dark mb-1">Keranjang Anyaman Warisan</h3>
+            <p className="text-[14px] text-on-surface-variant leading-[1.5] mb-2 line-clamp-2">Dianyam dari daun nipah yang dipanen berkelanjutan oleh tetua desa.</p>
+            <p className="text-[15px] font-semibold text-primary-dark">Rp675.000</p>
+          </Link>
+
+          {/* Product 3 */}
+          <Link href="/product/gula-nipah" className="group block">
+            <div className="aspect-[4/5] bg-[#F3EEE6] relative overflow-hidden rounded-lg mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1615486171448-4df2b1eb7e4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Gula Nipah Bubuk"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <h3 className="font-serif text-[20px] font-bold text-primary-dark mb-1">Gula Nipah Bubuk</h3>
+            <p className="text-[14px] text-on-surface-variant leading-[1.5] mb-2 line-clamp-2">Pemanis halus kaya mineral untuk dapur yang lebih sehat.</p>
+            <p className="text-[15px] font-semibold text-primary-dark">Rp210.000</p>
+          </Link>
         </div>
       </div>
     </section>

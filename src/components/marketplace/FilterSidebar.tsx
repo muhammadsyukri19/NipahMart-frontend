@@ -1,132 +1,62 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Icon } from '@/components/ui/Icon';
-import { Tag } from '@/components/ui/Tag';
-
-// ============================================================
-// FilterSidebar Organism
-// ============================================================
-
-const CATEGORIES = ['Sugar', 'Syrup', 'Food', 'Crafts'];
-const ECO_TAGS = [
-  { label: 'Plastic Free', active: true },
-  { label: 'Zero Carbon', active: false },
-  { label: 'Organic', active: false },
-  { label: 'Fair Trade', active: false },
-];
+import React from 'react';
 
 export function FilterSidebar() {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [sellerStatus, setSellerStatus] = useState<'all' | 'verified'>('all');
-  const [activeTags, setActiveTags] = useState<string[]>(['Plastic Free']);
-
-  const toggleCategory = (cat: string) => {
-    setSelectedCategories((prev) =>
-      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
-    );
-  };
-
-  const toggleTag = (tag: string) => {
-    setActiveTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-  };
-
   return (
-    <aside className="w-full md:w-64 flex-shrink-0" aria-label="Marketplace filters">
-      <div className="sticky top-28 space-y-10">
-
-        {/* Categories */}
-        <fieldset>
-          <legend className="text-[14px] font-[600] tracking-[0.08em] uppercase text-[var(--color-on-surface-variant)] mb-4">
-            Category
-          </legend>
-          <div className="space-y-3">
-            {CATEGORIES.map((cat) => (
-              <label key={cat} className="flex items-center group cursor-pointer">
-                <input
-                  type="checkbox"
-                  id={`cat-${cat.toLowerCase()}`}
-                  checked={selectedCategories.includes(cat)}
-                  onChange={() => toggleCategory(cat)}
-                  className="rounded-sm border-[var(--color-outline)] text-[var(--color-primary)] h-4 w-4 accent-[var(--color-primary)] focus:ring-[var(--color-primary)]"
-                />
-                <span className="ml-3 text-[16px] leading-[24px] text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
-                  {cat}
-                </span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        {/* Price Range */}
-        <div>
-          <h3 className="text-[14px] font-[600] tracking-[0.08em] uppercase text-[var(--color-on-surface-variant)] mb-4">
-            Price Range
-          </h3>
-          <div className="px-2">
-            <label htmlFor="price-range" className="sr-only">Price range</label>
-            <input
-              id="price-range"
-              type="range"
-              min={0}
-              max={500}
-              defaultValue={250}
-              className="w-full h-1 bg-[var(--color-surface-container-highest)] rounded-lg appearance-none cursor-pointer accent-[var(--color-primary)]"
-            />
-            <div className="flex justify-between mt-3 text-[12px] font-[500] text-[var(--color-on-surface-variant)]">
-              <span>$0</span>
-              <span>$500+</span>
+    <aside className="w-full lg:w-[240px] flex-shrink-0">
+      {/* Kategori */}
+      <div className="mb-10">
+        <h3 className="text-[13px] font-bold text-primary-dark uppercase tracking-wider mb-4 pb-2 border-b border-surface-container-high">
+          Filter Kategori
+        </h3>
+        <div className="space-y-3">
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-5 h-5 bg-primary-dark rounded-sm flex items-center justify-center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-          </div>
+            <span className="text-[14px] text-primary font-medium group-hover:text-primary-dark">Makanan & Nutrisi</span>
+          </label>
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-5 h-5 bg-primary-dark rounded-sm flex items-center justify-center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span className="text-[14px] text-primary font-medium group-hover:text-primary-dark">Pakaian & Tekstil</span>
+          </label>
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-5 h-5 bg-white border border-outline-variant rounded-sm flex items-center justify-center group-hover:border-primary-dark transition-colors"></div>
+            <span className="text-[14px] text-on-surface-variant group-hover:text-primary">Dekorasi Rumah</span>
+          </label>
         </div>
+      </div>
 
-        {/* Seller Status */}
-        <fieldset>
-          <legend className="text-[14px] font-[600] tracking-[0.08em] uppercase text-[var(--color-on-surface-variant)] mb-4">
-            Seller Status
-          </legend>
-          <div className="space-y-3">
-            {([
-              { value: 'verified', label: 'Verified Only', icon: 'verified' },
-              { value: 'all', label: 'All Sellers', icon: null },
-            ] as const).map(({ value, label, icon }) => (
-              <label key={value} className="flex items-center group cursor-pointer">
-                <input
-                  type="radio"
-                  name="seller-status"
-                  value={value}
-                  checked={sellerStatus === value}
-                  onChange={() => setSellerStatus(value)}
-                  className="border-[var(--color-outline)] text-[var(--color-primary)] h-4 w-4 accent-[var(--color-primary)] focus:ring-[var(--color-primary)]"
-                />
-                <span className="ml-3 text-[16px] text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors flex items-center gap-2">
-                  {icon && (
-                    <Icon name={icon} size="sm" filled className="text-[var(--color-tertiary)]" />
-                  )}
-                  {label}
-                </span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+      {/* Keberlanjutan */}
+      <div className="mb-10">
+        <h3 className="text-[13px] font-bold text-primary-dark uppercase tracking-wider mb-4 pb-2 border-b border-surface-container-high">
+          Keberlanjutan
+        </h3>
+        <div className="space-y-3">
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-5 h-5 rounded-full border-[5px] border-on-success-container bg-white"></div>
+            <span className="text-[14px] text-primary font-medium group-hover:text-primary-dark">Bebas Karbon</span>
+          </label>
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-5 h-5 rounded-full border border-outline-variant bg-white group-hover:border-primary-dark transition-colors"></div>
+            <span className="text-[14px] text-on-surface-variant group-hover:text-primary">Dapat Terurai</span>
+          </label>
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-5 h-5 rounded-full border border-outline-variant bg-white group-hover:border-primary-dark transition-colors"></div>
+            <span className="text-[14px] text-on-surface-variant group-hover:text-primary">Tanpa Limbah</span>
+          </label>
+        </div>
+      </div>
 
-        {/* Eco-Impact Tags */}
-        <div>
-          <h3 className="text-[14px] font-[600] tracking-[0.08em] uppercase text-[var(--color-on-surface-variant)] mb-4">
-            Eco-Impact
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {ECO_TAGS.map(({ label }) => (
-              <Tag
-                key={label}
-                label={label}
-                variant={activeTags.includes(label) ? 'active' : 'default'}
-                onClick={() => toggleTag(label)}
-              />
-            ))}
-          </div>
+      {/* Did you know box */}
+      <div className="bg-surface-container-highest p-5 rounded-sm border border-outline-variant/50">
+        <h4 className="text-[12px] font-bold text-primary-dark mb-2">Tahukah Anda?</h4>
+        <p className="text-[13px] text-on-surface-variant leading-relaxed">
+          Membeli produk <span className="font-bold text-on-success-container">'Eco-Sorted'</span> mengurangi jejak karbon belanja Anda hingga 40%.
+        </p>
+        <div className="mt-4 flex justify-end opacity-20">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#2A3B2C"><path d="M12 2L8 9h3v13h2V9h3L12 2z"/></svg>
         </div>
       </div>
     </aside>

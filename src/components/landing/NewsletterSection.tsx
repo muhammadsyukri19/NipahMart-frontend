@@ -1,65 +1,37 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/Button';
-
-// ============================================================
-// NewsletterSection Organism — CTA with email subscription
-// ============================================================
+import React from 'react';
 
 export function NewsletterSection() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubmitted(true);
-    }
-  };
-
   return (
-    <section
-      id="newsletter"
-      className="py-24 px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max)] mx-auto mb-12"
-      aria-label="Newsletter sign-up"
-    >
-      <div className="bg-[var(--color-surface-container-high)] rounded-[var(--radius-xl)] p-16 text-center border border-[var(--color-outline-variant)]">
-        <h2 className="font-[var(--font-heading)] text-[48px] font-[700] leading-[56px] tracking-[-0.02em] text-[var(--color-primary)] mb-6">
-          Stay Connected to the Coast
-        </h2>
-        <p className="text-[18px] leading-[28px] text-[var(--color-on-surface-variant)] mb-10 max-w-xl mx-auto">
-          Join our newsletter to receive stories from our artisans and early access to limited
-          edition craft drops.
-        </p>
-
-        {submitted ? (
-          <p className="text-[var(--color-tertiary)] text-[16px] font-[600]">
-            ✓ Thank you for subscribing! We&rsquo;ll be in touch soon.
+    <section className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="bg-[#EDE7DD] py-16 px-8 md:py-20 md:px-16 text-center max-w-[900px] mx-auto rounded-lg">
+          <h2 className="font-serif text-[32px] md:text-[42px] font-bold text-primary-dark mb-4 leading-tight">
+            Tetap Terhubung dengan Pesisir
+          </h2>
+          <p className="text-[15px] text-on-surface-variant mb-10 max-w-[500px] mx-auto leading-[1.65]">
+            Bergabunglah dengan buletin kami untuk menerima cerita dari para pengrajin dan akses awal ke produk edisi terbatas.
           </p>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto"
-            aria-label="Newsletter subscription form"
+
+          <form 
+            className="flex flex-col sm:flex-row gap-0 justify-center max-w-[460px] mx-auto"
+            onSubmit={(e) => e.preventDefault()}
           >
-            <label htmlFor="newsletter-email" className="sr-only">
-              Email address
-            </label>
             <input
-              id="newsletter-email"
               type="email"
+              placeholder="Masukkan email Anda"
+              className="flex-1 bg-white px-5 py-3.5 text-[14px] text-primary-dark placeholder:text-outline outline-none border-0 rounded-l-sm sm:rounded-l-sm rounded-r-none"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="flex-1 bg-[var(--color-surface-bright)] border border-[var(--color-outline)] rounded-[var(--radius-sm)] px-6 py-4 text-[16px] text-[var(--color-on-surface)] placeholder:text-[var(--color-on-surface-variant)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200"
             />
-            <Button variant="primary" size="lg" type="submit">
-              Subscribe
-            </Button>
+            <button 
+              type="submit" 
+              className="bg-primary text-white px-7 py-3.5 text-[14px] font-medium hover:bg-primary-darker transition-colors rounded-r-sm sm:rounded-r-sm rounded-l-none"
+            >
+              Berlangganan
+            </button>
           </form>
-        )}
+        </div>
       </div>
     </section>
   );

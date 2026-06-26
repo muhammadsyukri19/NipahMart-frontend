@@ -14,33 +14,33 @@ export interface FooterLinkGroup {
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Marketplace', href: '/marketplace' },
-  { label: 'About Nipah', href: '/about' },
-  { label: 'Community', href: '/community' },
-  { label: 'Education', href: '/education' },
+  { label: 'Tentang Nipah', href: '/about' },
+  { label: 'Komunitas', href: '/community' },
+  { label: 'Edukasi', href: '/education' },
 ];
 
 export const FOOTER_LINK_GROUPS: FooterLinkGroup[] = [
   {
-    title: 'Company',
+    title: 'Perusahaan',
     links: [
-      { label: 'Brand Story', href: '/about' },
-      { label: 'Social Impact', href: '/impact' },
-      { label: 'Careers', href: '/careers' },
+      { label: 'Kisah Kami', href: '/about' },
+      { label: 'Dampak Sosial', href: '/impact' },
+      { label: 'Karir', href: '/careers' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Sumber Daya',
     links: [
       { label: 'SDGs', href: '/impact#sdgs' },
-      { label: 'Newsletter', href: '#newsletter' },
+      { label: 'Buletin', href: '#newsletter' },
       { label: 'Press Kit', href: '/press' },
     ],
   },
   {
-    title: 'Help',
+    title: 'Bantuan',
     links: [
-      { label: 'Contact', href: '/contact' },
-      { label: 'Shipping', href: '/shipping' },
+      { label: 'Kontak', href: '/contact' },
+      { label: 'Pengiriman', href: '/shipping' },
       { label: 'FAQ', href: '/faq' },
     ],
   },
@@ -50,28 +50,28 @@ export const MARKETPLACE_FOOTER_GROUPS: FooterLinkGroup[] = [
   {
     title: 'Marketplace',
     links: [
-      { label: 'All Products', href: '/marketplace' },
-      { label: 'New Arrivals', href: '/marketplace?sort=new' },
-      { label: 'Verified Sellers', href: '/marketplace?filter=verified' },
-      { label: 'Gift Cards', href: '/gift-cards' },
+      { label: 'Semua Produk', href: '/marketplace' },
+      { label: 'Produk Baru', href: '/marketplace?sort=new' },
+      { label: 'Penjual Terverifikasi', href: '/marketplace?filter=verified' },
+      { label: 'Kartu Hadiah', href: '/gift-cards' },
     ],
   },
   {
     title: 'NipaHub',
     links: [
-      { label: 'Brand Story', href: '/about' },
-      { label: 'Social Impact', href: '/impact' },
+      { label: 'Kisah Kami', href: '/about' },
+      { label: 'Dampak Sosial', href: '/impact' },
       { label: 'SDGs', href: '/impact#sdgs' },
-      { label: 'Newsletter', href: '#newsletter' },
+      { label: 'Buletin', href: '#newsletter' },
     ],
   },
   {
-    title: 'Support',
+    title: 'Dukungan',
     links: [
-      { label: 'Contact', href: '/contact' },
-      { label: 'Shipping Policy', href: '/shipping' },
-      { label: 'Returns', href: '/returns' },
-      { label: 'Privacy', href: '/privacy' },
+      { label: 'Kontak', href: '/contact' },
+      { label: 'Kebijakan Pengiriman', href: '/shipping' },
+      { label: 'Pengembalian', href: '/returns' },
+      { label: 'Privasi', href: '/privacy' },
     ],
   },
 ];

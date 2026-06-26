@@ -1,112 +1,69 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import { Icon } from '@/components/ui/Icon';
-import { StoryCard } from '@/components/common/StoryCard';
-
-// ============================================================
-// CommunityStoriesSection Organism — horizontal slider
-// ============================================================
+import React from 'react';
+import Link from 'next/link';
 
 const STORIES = [
   {
-    id: 'story-1',
-    imageUrl:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDMt67pDpzAHuG0MrzCTlfYXcmoMrcbdpRzBe6_q_WpE8QpFvuN4LWkE0Mnd6nsIuqY0Z2PDsXOcHeMgO9Q0hIDFKu4pkBlhOqidnc5O9_5wbfl-n0U3gSgpPDlo-qNqzFvvqVlBxqNuqUsDDnydYZ__ZQhnjeVFY11WKWVnyeuCZTw1jpAAVF3DllFnDjDChWIy-z-dpswgFaxQTgbaMBfoXCCS9wHFQH1Sx0mUAKJYTXT2wz-7D7sFVt3ZvHIEAeuNT6MxmwpQkIu',
-    imageAlt:
-      'A vibrant Acehnese community center where men and women work together processing palm sap and weaving',
-    category: 'Ulee Lheue Village',
-    title: 'The Village that Saved its Mangroves',
-    description:
-      'Discover how Ulee Lheue transitioned from illegal logging to sustainable Nipah harvesting, doubling their forest cover in five years.',
+    id: '1',
+    title: 'Desa yang Menyelamatkan Mangrovenya',
+    excerpt: 'Temukan bagaimana Ulee Lheue beralih dari penebangan liar ke pemanenan nipah berkelanjutan, melipatgandakan tutupan hutan dalam lima tahun.',
+    image: 'https://images.unsplash.com/photo-1605650130638-3f5f3e9b1191?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/community/village-mangroves',
   },
   {
-    id: 'story-2',
-    imageUrl:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCRALou0PN_jhpFG0Di3YygF12xeXyB9l82He9xTeNPDGirsA0FYDTyDusD1O2C-VfPBiHmrhs8rvULQYgfBLFJYzZmF71ocOjnfGoD12UOi39iHRvLevcUHEgGrrWULRqbQDvnMsFiVatZOU2nSsxG6PXT8ZTdiFHUXT52EKlUbyp-8n_mxhSF0vJn7Yb0_ZoQU8pvnCLG2cpUNt6ymiY1NCcJ4SABZdNNbobdeGI80TwdiP6Jjwcl3dwRhrZX1Ia5-z9rYEA_hVhb',
-    imageAlt:
-      "A young artisan's hands holding a smartphone showing NipaHub dashboard with sales charts, traditional products in background",
-    category: 'Digital Literacy',
-    title: 'Breaking the Middleman Cycle',
-    description:
-      'How digital training allowed Syarifah to bypass exploitative local wholesalers and sell her crafts directly to European collectors.',
+    id: '2',
+    title: 'Memutus Siklus Tengkulak',
+    excerpt: 'Bagaimana penetapan harga digital memungkinkan Syarifah menghindari grosir lokal yang eksploitatif dan menjual langsung ke eksportir.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/community/breaking-cycle',
   },
   {
-    id: 'story-3',
-    imageUrl:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBoAhA8lHV96W52HsvdPir8XxPrbt-LUjFETyiMVzzbddcrqCyciyxoVxqK8sgx5CDMtOIftMh2pNGfYMOQ6daifavb0yFpRVHq4TRao4ENtKSb84X5bUgaC2s-VcqentRw_l_71lKhfYQa56DOrAtEHKnlzmteOsn8uJlcA0aXPySo5_BIhzt0Ig4IbCyWjqHwD7llHUghOaTOQ03K25sPN1FfhKgXOK7dcI0ZjgPJ6AYwYGA16TYNuGhN5Xf8BpnZkMOk7NGw-',
-    imageAlt:
-      'Wide coastal restoration site where new Nipah saplings are being planted in neat rows along a river bank',
-    category: 'Restoration',
-    title: 'Planting for the Next Century',
-    description:
-      "Every purchase contributes to our reforestation fund. This year, we've planted 10,000 Nipah saplings across the coast.",
+    id: '3',
+    title: 'Menanam untuk Generasi Berikutnya',
+    excerpt: 'Setiap pembelian berkontribusi pada pembibitan mangrove yang dipimpin pemuda kami. Sudah 10.000 pohon ditanam.',
+    image: 'https://images.unsplash.com/photo-1601639396348-18e3c15d48cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: '/community/planting',
   },
 ];
 
-const SLIDE_WIDTH = 480;
-
 export function CommunityStoriesSection() {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [currentTranslate, setCurrentTranslate] = useState(0);
-
-  const handleNext = () => {
-    if (!sliderRef.current) return;
-    const maxScroll = sliderRef.current.scrollWidth - sliderRef.current.parentElement!.clientWidth;
-    const next = currentTranslate - SLIDE_WIDTH;
-    if (Math.abs(next) <= maxScroll) {
-      setCurrentTranslate(next);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentTranslate < 0) {
-      setCurrentTranslate(currentTranslate + SLIDE_WIDTH);
-    }
-  };
-
   return (
-    <section
-      className="py-24 px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max)] mx-auto overflow-hidden"
-      aria-label="Community Stories"
-    >
-      {/* Header */}
-      <div className="flex justify-between items-center mb-16">
-        <h2 className="font-[var(--font-heading)] text-[48px] font-[700] leading-[56px] tracking-[-0.02em] text-[var(--color-primary)]">
-          Community Stories
-        </h2>
-
-        {/* Slider controls */}
-        <div className="flex gap-4" role="group" aria-label="Story slider controls">
-          <button
-            id="prevBtn"
-            onClick={handlePrev}
-            aria-label="Previous story"
-            className="w-12 h-12 border border-[var(--color-outline)] rounded-full flex items-center justify-center hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] hover:border-[var(--color-primary)] transition-all duration-200"
-          >
-            <Icon name="chevron_left" size="md" />
-          </button>
-          <button
-            id="nextBtn"
-            onClick={handleNext}
-            aria-label="Next story"
-            className="w-12 h-12 border border-[var(--color-outline)] rounded-full flex items-center justify-center hover:bg-[var(--color-primary)] hover:text-[var(--color-on-primary)] hover:border-[var(--color-primary)] transition-all duration-200"
-          >
-            <Icon name="chevron_right" size="md" />
-          </button>
+    <section className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
+      <div className="max-w-[1440px] mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <h2 className="font-serif text-[34px] md:text-[44px] font-bold text-primary-dark leading-tight">
+            Cerita Komunitas
+          </h2>
+          <div className="flex items-center gap-3 pb-1">
+            <button className="w-10 h-10 border border-primary-dark/20 flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors rounded-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button className="w-10 h-10 border border-primary-dark/20 flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors rounded-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Slider */}
-      <div
-        ref={sliderRef}
-        className="flex gap-[var(--spacing-gutter)] transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(${currentTranslate}px)` }}
-        aria-live="polite"
-      >
-        {STORIES.map((story) => (
-          <StoryCard key={story.id} {...story} minWidth={`${SLIDE_WIDTH - 24}px`} />
-        ))}
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {STORIES.map((story) => (
+            <Link href={story.link} key={story.id} className="group block">
+              <div className="aspect-[3/2] bg-[#EDE7DD] overflow-hidden rounded-lg mb-4">
+                <img
+                  src={story.image}
+                  alt={story.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <h3 className="font-serif text-[20px] font-bold text-primary-dark mb-2 leading-tight group-hover:text-secondary transition-colors">
+                {story.title}
+              </h3>
+              <p className="text-[14px] text-on-surface-variant leading-[1.6]">{story.excerpt}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

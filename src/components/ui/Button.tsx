@@ -15,22 +15,17 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    'bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:opacity-90 active:scale-[0.98]',
-  secondary:
-    'bg-[var(--color-secondary)] text-[var(--color-on-secondary)] hover:opacity-90 active:scale-[0.98]',
-  outline:
-    'border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary-fixed)] active:scale-[0.98]',
-  ghost:
-    'text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-container-low)]',
-  underline:
-    'text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] pb-0.5 hover:opacity-70',
+  primary: 'bg-primary text-on-primary hover:opacity-90 active:scale-[0.98]',
+  secondary: 'bg-secondary text-on-secondary hover:opacity-90 active:scale-[0.98]',
+  outline: 'border border-primary text-primary hover:bg-primary-fixed active:scale-[0.98]',
+  ghost: 'text-on-surface-variant hover:text-primary hover:bg-surface-container-low active:scale-[0.98]',
+  underline: 'text-primary border-b-2 border-primary pb-0.5 hover:opacity-70',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'px-4 py-2 text-[12px] font-[500] tracking-[0.05em]',
-  md: 'px-6 py-2 text-[14px] font-[600] tracking-[0.05em]',
-  lg: 'px-8 py-4 text-[14px] font-[600] tracking-[0.05em]',
+  sm: 'px-4 py-2 text-sm font-medium',
+  md: 'px-6 py-2.5 text-base font-semibold',
+  lg: 'px-8 py-3 text-lg font-semibold',
 };
 
 export function Button({
@@ -41,23 +36,18 @@ export function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles =
-    'inline-flex items-center justify-center gap-2 rounded-lg font-[var(--font-body)] transition-all duration-200 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed';
-
+  const baseStyles = 'inline-flex items-center justify-center gap-2 rounded-none font-body transition-all duration-200 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed';
   const isUnderline = variant === 'underline';
 
   return (
     <button
       className={[
-        isUnderline ? '' : baseStyles,
-        isUnderline ? 'inline-flex items-center gap-2 transition-opacity duration-200 cursor-pointer' : '',
+        isUnderline ? 'inline-flex items-center gap-2 transition-opacity duration-200 cursor-pointer' : baseStyles,
         variantStyles[variant],
         isUnderline ? '' : sizeStyles[size],
         fullWidth ? 'w-full' : '',
         className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      ].filter(Boolean).join(' ')}
       {...props}
     >
       {children}

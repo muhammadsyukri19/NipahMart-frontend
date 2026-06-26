@@ -12,11 +12,11 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export function Input({ label, id, error, className = '', ...props }: InputProps) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-2">
       {label && (
         <label
           htmlFor={id}
-          className="text-[14px] font-[600] tracking-[0.05em] text-[var(--color-on-surface)] leading-[20px]"
+          className="text-sm font-semibold tracking-wide text-on-surface"
         >
           {label}
         </label>
@@ -24,13 +24,13 @@ export function Input({ label, id, error, className = '', ...props }: InputProps
       <input
         id={id}
         className={[
-          'w-full bg-[var(--color-surface-bright)] border border-[var(--color-outline-variant)]',
-          'rounded-[var(--radius-sm)] px-4 py-3',
-          'text-[16px] font-[400] text-[var(--color-on-surface)]',
-          'placeholder:text-[var(--color-on-surface-variant)]',
-          'focus:outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-opacity-20',
+          'w-full bg-surface-bright border border-outline-variant',
+          'rounded-xl px-4 py-3',
+          'text-base font-normal text-on-surface',
+          'placeholder:text-on-surface-variant',
+          'focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20',
           'transition-all duration-200',
-          error ? 'border-[var(--color-error)]' : '',
+          error ? 'border-error' : '',
           className,
         ]
           .filter(Boolean)
@@ -38,7 +38,7 @@ export function Input({ label, id, error, className = '', ...props }: InputProps
         {...props}
       />
       {error && (
-        <span className="text-[12px] text-[var(--color-error)] leading-[16px]">{error}</span>
+        <span className="text-xs text-error">{error}</span>
       )}
     </div>
   );

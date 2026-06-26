@@ -13,8 +13,8 @@ export function SectionLabel({ text, className = '' }: SectionLabelProps) {
   return (
     <span
       className={[
-        'block text-[14px] font-[600] tracking-[0.1em] uppercase leading-[20px]',
-        'text-[var(--color-secondary)]',
+        'block text-xs md:text-sm font-semibold tracking-widest uppercase',
+        'text-secondary',
         className,
       ]
         .filter(Boolean)
