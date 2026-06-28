@@ -1,6 +1,16 @@
 import React from 'react';
 
-export function FilterSidebar() {
+interface FilterSidebarProps {
+  categories: string[];
+  selectedCategories: string[];
+  onToggleCategory: (category: string) => void;
+  selectedTags: string[];
+  onToggleTag: (tag: string) => void;
+}
+
+export function FilterSidebar({ categories, selectedCategories, onToggleCategory, selectedTags, onToggleTag }: FilterSidebarProps) {
+  const SUSTAINABILITY_TAGS = ["Bebas Karbon", "Dapat Terurai", "Tanpa Limbah"];
+
   return (
     <aside className="w-full lg:w-[240px] flex-shrink-0">
       {/* Kategori */}
@@ -9,22 +19,23 @@ export function FilterSidebar() {
           Filter Kategori
         </h3>
         <div className="space-y-3">
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-5 h-5 bg-primary-dark rounded-sm flex items-center justify-center">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <span className="text-[14px] text-primary font-medium group-hover:text-primary-dark">Makanan & Nutrisi</span>
-          </label>
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-5 h-5 bg-primary-dark rounded-sm flex items-center justify-center">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <span className="text-[14px] text-primary font-medium group-hover:text-primary-dark">Pakaian & Tekstil</span>
-          </label>
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-5 h-5 bg-white border border-outline-variant rounded-sm flex items-center justify-center group-hover:border-primary-dark transition-colors"></div>
-            <span className="text-[14px] text-on-surface-variant group-hover:text-primary">Dekorasi Rumah</span>
-          </label>
+          {categories.map(cat => {
+            const isSelected = selectedCategories.includes(cat);
+            return (
+              <label key={cat} className="flex items-center gap-3 cursor-pointer group" onClick={() => onToggleCategory(cat)}>
+                {isSelected ? (
+                  <div className="w-5 h-5 bg-primary-dark rounded-sm flex items-center justify-center shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                ) : (
+                  <div className="w-5 h-5 bg-white border border-outline-variant rounded-sm flex items-center justify-center group-hover:border-primary-dark transition-colors shrink-0"></div>
+                )}
+                <span className={`text-[13px] font-medium transition-colors ${isSelected ? 'text-primary' : 'text-on-surface-variant group-hover:text-primary'}`}>
+                  {cat}
+                </span>
+              </label>
+            );
+          })}
         </div>
       </div>
 
@@ -34,18 +45,21 @@ export function FilterSidebar() {
           Keberlanjutan
         </h3>
         <div className="space-y-3">
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-5 h-5 rounded-full border-[5px] border-on-success-container bg-white"></div>
-            <span className="text-[14px] text-primary font-medium group-hover:text-primary-dark">Bebas Karbon</span>
-          </label>
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-5 h-5 rounded-full border border-outline-variant bg-white group-hover:border-primary-dark transition-colors"></div>
-            <span className="text-[14px] text-on-surface-variant group-hover:text-primary">Dapat Terurai</span>
-          </label>
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-5 h-5 rounded-full border border-outline-variant bg-white group-hover:border-primary-dark transition-colors"></div>
-            <span className="text-[14px] text-on-surface-variant group-hover:text-primary">Tanpa Limbah</span>
-          </label>
+          {SUSTAINABILITY_TAGS.map(tag => {
+            const isSelected = selectedTags.includes(tag);
+            return (
+              <label key={tag} className="flex items-center gap-3 cursor-pointer group" onClick={() => onToggleTag(tag)}>
+                {isSelected ? (
+                  <div className="w-5 h-5 rounded-full border-[5px] border-on-success-container bg-white shrink-0"></div>
+                ) : (
+                  <div className="w-5 h-5 rounded-full border border-outline-variant bg-white group-hover:border-primary-dark transition-colors shrink-0"></div>
+                )}
+                <span className={`text-[13px] font-medium transition-colors ${isSelected ? 'text-primary' : 'text-on-surface-variant group-hover:text-primary'}`}>
+                  {tag}
+                </span>
+              </label>
+            );
+          })}
         </div>
       </div>
 

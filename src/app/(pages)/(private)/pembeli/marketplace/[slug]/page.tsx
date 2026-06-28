@@ -138,12 +138,12 @@ export default function ProductDetailPage() {
               <span className="text-[var(--color-on-surface)]">Bags</span>
             </nav>
 
-            <h1 className="font-[var(--font-heading)] text-[32px] font-[600] leading-[40px] text-[var(--color-primary)] mb-2">
+            <h1 className="font-serif text-[32px] font-[600] leading-[40px] text-[var(--color-primary)] mb-2">
               {PRODUCT.name}
             </h1>
 
             <div className="flex items-center gap-4 mb-6">
-              <p className="font-[var(--font-heading)] text-[24px] font-[600] leading-[32px] text-[var(--color-secondary)]">
+              <p className="font-serif text-[24px] font-[600] leading-[32px] text-[var(--color-secondary)]">
                 {PRODUCT.priceLabel}
               </p>
               <span className="text-[14px] font-[600] tracking-[0.05em] text-[var(--color-tertiary-container)] bg-[var(--color-tertiary-fixed)] px-3 py-0.5 rounded-full">
@@ -212,7 +212,7 @@ export default function ProductDetailPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-outline-variant)] mb-24" aria-label="Seller story and social impact">
           <div className="bg-[var(--color-background)] p-12 lg:p-20">
             <div className="max-w-md">
-              <h2 className="font-[var(--font-heading)] text-[24px] font-[600] leading-[32px] text-[var(--color-primary)] mb-6">
+              <h2 className="font-serif text-[24px] font-[600] leading-[32px] text-[var(--color-primary)] mb-6">
                 Seller Story: {PRODUCT.sellerStory.name}
               </h2>
               <blockquote className="text-[18px] leading-[28px] text-[var(--color-on-surface)] mb-6 italic">
@@ -226,7 +226,7 @@ export default function ProductDetailPage() {
 
           <div className="bg-[var(--color-surface-container-high)] p-12 lg:p-20 relative overflow-hidden">
             <div className="max-w-md relative z-10">
-              <h2 className="font-[var(--font-heading)] text-[24px] font-[600] leading-[32px] text-[var(--color-primary)] mb-6">
+              <h2 className="font-serif text-[24px] font-[600] leading-[32px] text-[var(--color-primary)] mb-6">
                 Social Impact
               </h2>
               <div className="space-y-8">
@@ -249,7 +249,7 @@ export default function ProductDetailPage() {
         {/* Related Products */}
         <section aria-label="Related artisanal goods">
           <div className="flex justify-between items-end mb-10">
-            <h2 className="font-[var(--font-heading)] text-[32px] font-[600] leading-[40px] text-[var(--color-primary)]">
+            <h2 className="font-serif text-[32px] font-[600] leading-[40px] text-[var(--color-primary)]">
               Related Artisanal Goods
             </h2>
             <Link

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function FeaturedProductsSection() {
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
+    <section id="marketplace" className="w-full bg-white py-20 px-8 md:px-16 lg:px-24">
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
@@ -24,7 +24,7 @@ export function FeaturedProductsSection() {
           <Link href="/product/sirup-nipah" className="group block">
             <div className="aspect-[4/5] bg-[#F3EEE6] relative overflow-hidden rounded-lg mb-4">
               <img
-                src="https://images.unsplash.com/photo-1587049352847-4d4b1263d596?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/images/products/gula-semut-nipah.webp"
                 alt="Sirup Nipah Organik"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -39,7 +39,7 @@ export function FeaturedProductsSection() {
           <Link href="/product/keranjang-anyaman" className="group block">
             <div className="aspect-[4/5] bg-[#F3EEE6] relative overflow-hidden rounded-lg mb-4">
               <img
-                src="https://images.unsplash.com/photo-1590736969955-71cc94801759?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/images/products/kertas-nipah.webp"
                 alt="Keranjang Anyaman Warisan"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -54,7 +54,7 @@ export function FeaturedProductsSection() {
           <Link href="/product/gula-nipah" className="group block">
             <div className="aspect-[4/5] bg-[#F3EEE6] relative overflow-hidden rounded-lg mb-4">
               <img
-                src="https://images.unsplash.com/photo-1615486171448-4df2b1eb7e4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/images/products/sirup-nipah.webp"
                 alt="Gula Nipah Bubuk"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

@@ -1,11 +1,18 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
+import { AddressForm } from '@/components/common/AddressForm';
 
 export function SavedAddressesCard({ addresses }: { addresses: any[] }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="lg:col-span-3 bg-white p-6 md:p-8 rounded-sm border border-surface-container-high">
       <div className="flex justify-between items-center mb-6">
         <h2 className="font-serif text-[22px] font-bold text-primary-dark">Alamat Tersimpan</h2>
-        <button className="bg-primary text-white text-[13px] font-medium px-4 py-2 rounded-sm flex items-center gap-2 hover:bg-primary-darker transition-colors">
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="bg-primary text-white text-[13px] font-medium px-4 py-2 rounded-sm flex items-center gap-2 hover:bg-primary-darker transition-colors"
+        >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           Tambah Alamat Baru
         </button>
@@ -31,6 +38,8 @@ export function SavedAddressesCard({ addresses }: { addresses: any[] }) {
           </div>
         ))}
       </div>
+      
+      {isModalOpen && <AddressForm onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 }

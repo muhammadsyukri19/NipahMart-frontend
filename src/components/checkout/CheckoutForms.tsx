@@ -1,5 +1,7 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import { MOCK_ADDRESSES } from '@/constants/dummyData';
+import { AddressForm } from '@/components/common/AddressForm';
 
 interface CheckoutFormsProps {
   selectedAddress: number;
@@ -15,6 +17,8 @@ export function CheckoutForms({
   selectedShipping, setSelectedShipping, 
   selectedPayment, setSelectedPayment 
 }: CheckoutFormsProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex-1 space-y-10">
       {/* Section: Alamat Pengiriman */}
@@ -37,13 +41,17 @@ export function CheckoutForms({
               <p className="text-[13px] text-on-surface-variant leading-relaxed">{addr.address}</p>
             </div>
           ))}
-          <div className="p-5 rounded-sm border border-dashed border-outline-variant flex items-center justify-center cursor-pointer hover:bg-white hover:border-primary-dark transition-colors">
+          <div 
+            onClick={() => setIsModalOpen(true)}
+            className="p-5 rounded-sm border border-dashed border-outline-variant flex items-center justify-center cursor-pointer hover:bg-white hover:border-primary-dark transition-colors"
+          >
             <span className="text-[13px] font-bold text-primary-dark flex items-center gap-2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               Tambah Alamat Baru
             </span>
           </div>
         </div>
+        {isModalOpen && <AddressForm onClose={() => setIsModalOpen(false)} />}
       </section>
 
       {/* Section: Metode Pengiriman */}

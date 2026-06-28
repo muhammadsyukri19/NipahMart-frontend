@@ -8,28 +8,28 @@ const STORIES = [
     id: '1',
     title: 'Desa yang Menyelamatkan Mangrovenya',
     excerpt: 'Temukan bagaimana Ulee Lheue beralih dari penebangan liar ke pemanenan nipah berkelanjutan, melipatgandakan tutupan hutan dalam lima tahun.',
-    image: 'https://images.unsplash.com/photo-1605650130638-3f5f3e9b1191?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/images/pengrajin-nipah.webp',
     link: '/community/village-mangroves',
   },
   {
     id: '2',
     title: 'Memutus Siklus Tengkulak',
     excerpt: 'Bagaimana penetapan harga digital memungkinkan Syarifah menghindari grosir lokal yang eksploitatif dan menjual langsung ke eksportir.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/images/products/serat-pelepah.webp',
     link: '/community/breaking-cycle',
   },
   {
     id: '3',
     title: 'Menanam untuk Generasi Berikutnya',
     excerpt: 'Setiap pembelian berkontribusi pada pembibitan mangrove yang dipimpin pemuda kami. Sudah 10.000 pohon ditanam.',
-    image: 'https://images.unsplash.com/photo-1601639396348-18e3c15d48cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/images/products/arang-nipah.webp',
     link: '/community/planting',
   },
 ];
 
 export function CommunityStoriesSection() {
   return (
-    <section className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
+    <section id="community" className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">

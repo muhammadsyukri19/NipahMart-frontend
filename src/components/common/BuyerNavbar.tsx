@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 const NAV_LINKS = [
@@ -12,6 +13,8 @@ const NAV_LINKS = [
 
 export function BuyerNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-surface-container-high/60">
@@ -33,15 +36,22 @@ export function BuyerNavbar() {
 
           {/* Nav Links (Desktop) */}
           <div className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-[14px] text-on-surface-variant hover:text-primary font-medium transition-colors whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname?.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-[14px] font-medium transition-all duration-200 whitespace-nowrap ${
+                    isActive 
+                      ? 'text-primary-dark border-b-2 border-primary-dark pb-1' 
+                      : 'text-on-surface-variant hover:text-primary'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
@@ -81,13 +91,38 @@ export function BuyerNavbar() {
               </svg>
             </button>
 
-            <Link href="/pembeli/settings" className="w-8 h-8 rounded-full overflow-hidden border border-surface-container-high">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt="Profile Avatar"
-                className="w-full h-full object-cover"
-              />
-            </Link>
+            <div className="relative">
+              <button 
+                onClick={() => setProfileOpen(!profileOpen)}
+                className="w-8 h-8 rounded-full overflow-hidden border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary-dark transition-all"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt="Profile Avatar"
+                  className="w-full h-full object-cover"
+                />
+              </button>
+
+              {profileOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setProfileOpen(false)}></div>
+                  <div className="absolute right-0 mt-3 w-56 bg-white rounded-md shadow-xl border border-surface-container-high py-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                    <div className="px-4 py-3 border-b border-surface-container-high mb-1">
+                      <p className="text-[14px] font-bold text-primary-dark">Cut Nyak Sofia</p>
+                      <p className="text-[12px] text-on-surface-variant">Pembeli Terverifikasi</p>
+                    </div>
+                    <Link href="/pembeli/settings" onClick={() => setProfileOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-on-surface-variant hover:bg-surface hover:text-primary transition-colors">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      Profil & Pengaturan
+                    </Link>
+                    <Link href="/login" onClick={() => setProfileOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-error hover:bg-error/10 transition-colors mt-1 border-t border-surface-container-high/50 pt-3">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                      Keluar
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Mobile hamburger */}
@@ -111,19 +146,33 @@ export function BuyerNavbar() {
               className="w-full bg-white border border-surface-container-high text-primary text-[14px] rounded-sm px-4 py-3 focus:outline-none focus:border-primary"
             />
           </div>
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="text-[15px] text-primary font-medium" onClick={() => setMobileOpen(false)}>
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname?.startsWith(link.href);
+            return (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                className={`text-[15px] ${isActive ? 'text-primary-dark font-bold' : 'text-primary font-medium'}`} 
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <div className="border-t border-surface-container-high pt-5 mt-2 flex items-center justify-between">
             <Link href="/pembeli/cart" className="flex items-center gap-3 text-primary font-medium">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
               Keranjang
             </Link>
-            <Link href="/pembeli/settings" className="flex items-center gap-3">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Profile" className="w-8 h-8 rounded-full" />
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link href="/pembeli/settings" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Profile" className="w-8 h-8 rounded-full border border-surface-container-high" />
+                <span className="text-[14px] font-bold text-primary-dark">Profil</span>
+              </Link>
+              <Link href="/login" onClick={() => setMobileOpen(false)} className="ml-auto text-[13px] font-bold text-error bg-error/10 px-3 py-1.5 rounded-sm">
+                Keluar
+              </Link>
+            </div>
           </div>
         </div>
       )}

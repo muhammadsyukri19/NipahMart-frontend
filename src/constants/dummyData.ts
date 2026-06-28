@@ -11,9 +11,9 @@ export const MOCK_USER = {
 
 export const MOCK_ACTIVE_ORDER = {
   id: "NH-88291",
-  productName: "Gula Nipah Organik (Rendah Glikemik)",
+  productName: "Gula Nipah Cair Organik (Rendah Glikemik)",
   price: 125000,
-  image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+  image: "/images/products/gula-cair-nipah.webp",
   courier: "Biteship Express",
   status: "SEDANG TRANSIT",
   progress: 2, // 0: Dibayar, 1: Diproses, 2: Dikirim, 3: Diterima
@@ -26,8 +26,8 @@ export const MOCK_TIMELINE = [
 ];
 
 export const MOCK_PRODUCTS = [
-  { id: 1, title: "Topi Anyaman Pesisir", desc: "Dianyam dengan tangan oleh pengrajin", price: 210000, score: 98, image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-  { id: 2, title: "Set Tatakan Ruang Makan", desc: "Set isi 6 • Finishing Alami", price: 85000, score: 96, image: "https://images.unsplash.com/photo-1610992015762-1111075677d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+  { id: 1, title: "Kertas Daur Ulang Pelepah", desc: "Dibuat dengan tangan oleh pengrajin", price: 35000, score: 98, image: "/images/products/kertas-nipah.webp" },
+  { id: 2, title: "Serat Pelepah Nipah", desc: "Bahan baku anyaman • Kualitas Alami", price: 20000, score: 96, image: "/images/products/serat-pelepah.webp" },
 ];
 
 export const MOCK_ADDRESSES = [
@@ -39,62 +39,102 @@ export const MOCK_MARKETPLACE_PRODUCTS = [
   { 
     id: 1, 
     category: "MAKANAN & NUTRISI", 
-    title: "Gula Rendah Glikemik", 
-    price: 45000, 
+    title: "Gula Semut Nipah", 
+    price: 35000, 
     rating: 4.9, 
     reviews: 124, 
     isEcoSorted: true,
-    image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+    image: "/images/products/gula-semut-nipah.webp" 
   },
   { 
     id: 2, 
-    category: "PAKAIAN & TEKSTIL", 
-    title: "Topi Anyaman Pesisir", 
-    price: 185000, 
+    category: "KERAJINAN TANGAN", 
+    title: "Kertas Daur Ulang Pelepah", 
+    price: 35000, 
     rating: 4.8, 
     reviews: 86, 
     isEcoSorted: true,
-    image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+    image: "/images/products/kertas-nipah.webp" 
   },
   { 
     id: 3, 
-    category: "PAKET HADIAH", 
-    title: "Paket Warisan Pesisir", 
-    price: 320000, 
+    category: "MAKANAN & NUTRISI", 
+    title: "Manisan (Meuseukat) Nipah", 
+    price: 45000, 
     rating: 5.0, 
     reviews: 12, 
     isEcoSorted: true,
-    image: "https://images.unsplash.com/photo-1610992015762-1111075677d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+    image: "/images/products/manisan-nipah.webp" 
   },
   { 
     id: 4, 
-    category: "DEKORASI RUMAH", 
-    title: "Mangkuk Keramik Tanah", 
-    price: 210000, 
+    category: "ENERGI ALTERNATIF", 
+    title: "Briket Arang Nipah", 
+    price: 15000, 
     rating: 0, 
     reviews: 0, 
     isEcoSorted: false,
-    image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+    image: "/images/products/arang-nipah.webp" 
+  },
+  { 
+    id: 5, 
+    category: "BUMBU & BAHAN MASAKAN", 
+    title: "Cuka Nipah Tradisional", 
+    price: 25000, 
+    rating: 4.7, 
+    reviews: 58, 
+    isEcoSorted: true,
+    image: "/images/products/cuka-nipah.webp" 
+  },
+  { 
+    id: 6, 
+    category: "PERAWATAN DIRI", 
+    title: "Sabun Cair Ekstrak Nipah", 
+    price: 28000, 
+    rating: 4.9, 
+    reviews: 210, 
+    isEcoSorted: true,
+    image: "/images/products/sabun-cair-nipah.webp" 
+  },
+  { 
+    id: 7, 
+    category: "BAHAN KERAJINAN", 
+    title: "Serat Pelepah Nipah", 
+    price: 20000, 
+    rating: 4.6, 
+    reviews: 32, 
+    isEcoSorted: false,
+    image: "/images/products/serat-pelepah.webp" 
+  },
+  { 
+    id: 8, 
+    category: "MINUMAN", 
+    title: "Sirup Nipah Premium", 
+    price: 55000, 
+    rating: 5.0, 
+    reviews: 18, 
+    isEcoSorted: true,
+    image: "/images/products/sirup-nipah.webp" 
   },
 ];
 
 export const MOCK_CART_ITEMS = [
   {
     id: 1,
-    productName: "Gula Nipah Organik (Rendah Glikemik)",
+    productName: "Gula Nipah Cair Organik",
     category: "MAKANAN & NUTRISI",
     price: 45000,
     quantity: 2,
-    image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    image: "/images/products/gula-cair-nipah.webp",
     isEcoSorted: true,
   },
   {
     id: 2,
-    productName: "Topi Anyaman Pesisir",
-    category: "PAKAIAN & TEKSTIL",
-    price: 185000,
+    productName: "Kertas Daur Ulang Pelepah",
+    category: "KERAJINAN TANGAN",
+    price: 35000,
     quantity: 1,
-    image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    image: "/images/products/kertas-nipah.webp",
     isEcoSorted: true,
   }
 ];
@@ -158,9 +198,9 @@ export const MOCK_PRODUCT_DETAILS = {
   isEcoSorted: true,
   stock: 45,
   images: [
-    "https://images.unsplash.com/photo-1587049352847-4d4b1a2068aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1622485540306-382a84e68e4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    "/images/products/gula-cair-nipah.webp",
+    "/images/products/sirup-nipah.webp",
+    "/images/products/gula-semut-nipah.webp"
   ],
   shortDesc: "Gula nipah cair murni dari nira nipah pesisir Aceh Besar. Indeks glikemik rendah, cocok untuk penderita diabetes dan diet sehat. Diproses secara tradisional tanpa tambahan bahan kimia.",
   description: "<p>Gula nipah cair premium kami disadap langsung dari pohon nipah liar yang tumbuh alami di kawasan estuari Aceh Besar. Memiliki rasa manis karamel yang khas dengan sentuhan gurih (umami) alami dari ekosistem payau.</p><br/><p><strong>Kandungan Gizi:</strong><br/>- Indeks Glikemik Rendah (GI 35-40)<br/>- Kaya Antioksidan<br/>- Mengandung Mineral Alami (Zat Besi, Kalium)</p>",

@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 export function AboutSection() {
   return (
-    <section className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
+    <section id="about" className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         {/* Left — Image with overlapping quote */}
         <div className="relative w-full max-w-[520px] mx-auto lg:mx-0">
           <div className="aspect-[4/3] rounded-lg overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1605650130638-3f5f3e9b1191?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              src="/images/pengrajin-nipah.webp"
               alt="Pengrajin Nipah"
               className="w-full h-full object-cover"
             />

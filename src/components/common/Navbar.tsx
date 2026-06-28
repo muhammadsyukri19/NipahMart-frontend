@@ -2,13 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 const NAV_LINKS = [
-  { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Tentang Nipah', href: '/about' },
-  { label: 'Komunitas', href: '/community' },
-  { label: 'Edukasi', href: '/education' },
+  { label: 'Marketplace', href: '/#marketplace' },
+  { label: 'Tentang Nipah', href: '/#about' },
+  { label: 'Komunitas', href: '/#community' },
+  { label: 'Edukasi', href: '/#education' },
 ];
 
 interface NavbarProps {
@@ -18,6 +19,7 @@ interface NavbarProps {
 
 export function Navbar({ activePath, variant = 'default' }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-surface-container-high/60">
@@ -38,15 +40,22 @@ export function Navbar({ activePath, variant = 'default' }: NavbarProps) {
 
         {/* Center nav links */}
         <div className="hidden lg:flex items-center justify-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[14px] text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname?.startsWith(link.href) || activePath === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-[14px] transition-all duration-200 whitespace-nowrap ${
+                  isActive
+                    ? 'text-primary-dark font-bold border-b-2 border-primary-dark pb-1'
+                    : 'text-on-surface-variant hover:text-primary'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Right side */}
@@ -77,11 +86,19 @@ export function Navbar({ activePath, variant = 'default' }: NavbarProps) {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-surface border-t border-surface-container-high px-6 py-6 flex flex-col gap-5">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="text-[15px] text-primary font-medium" onClick={() => setMobileOpen(false)}>
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname?.startsWith(link.href) || activePath === link.href;
+            return (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                className={`text-[15px] ${isActive ? 'text-primary-dark font-bold' : 'text-primary font-medium'}`} 
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <Link href="/login" onClick={() => setMobileOpen(false)}>
             <span className="block text-center bg-primary text-white text-[14px] font-medium px-5 py-3 rounded-sm">Masuk</span>
           </Link>

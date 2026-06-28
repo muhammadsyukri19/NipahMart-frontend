@@ -27,7 +27,7 @@ export default function ImpactPage() {
       >
         {/* Page Header */}
         <section className="mb-16" aria-label="Impact Dashboard header">
-          <h1 className="font-[var(--font-heading)] text-[48px] font-[700] leading-[56px] tracking-[-0.02em] text-[var(--color-primary)] mb-4">
+          <h1 className="font-serif text-[48px] font-[700] leading-[56px] tracking-[-0.02em] text-[var(--color-primary)] mb-4">
             Impact Dashboard
           </h1>
           <p className="text-[18px] leading-[28px] text-[var(--color-on-surface-variant)] max-w-2xl">

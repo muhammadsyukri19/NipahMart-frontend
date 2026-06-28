@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function WhyNipahSection() {
   return (
-    <section className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
+    <section id="education" className="w-full bg-surface py-20 px-8 md:px-16 lg:px-24">
       <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -36,7 +36,7 @@ export function WhyNipahSection() {
           {/* Ketahanan Pengrajin — kanan gambar */}
           <div className="md:col-span-5 relative overflow-hidden rounded-lg min-h-[320px] group">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_AUMFRtSyJsfyqghuBVc9ZrEhAstc5lO6Iv_T91N5S5dsLU2an0_O9SGY7rSyASxkpJ4EnMRDsNX9sB_aMS0DZYHYAD-iB2DwB4kStr0kWRU6Jr0ZbLdLXfgC595PX_ZqltIRn_mV3Z5-IgsIgeYr9lTHAymqpq2B6fRPX8z8vsEV8I3u0kixMdLR0U7bUDFl-D4Jtk1UgZncwq8IyWmmugU1xgXTspYOo0zOXwMrhDoR5729B3vOMJ1_KqmLPc8NL5W1UWYDtTY"
+              src="/images/pengrajin-nipah.webp"
               alt="Pengrajin anyaman"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />

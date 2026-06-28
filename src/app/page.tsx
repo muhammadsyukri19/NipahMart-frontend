@@ -16,11 +16,11 @@ export default function LandingPage() {
 
       <main className="pt-16" id="main-content">
         <HeroSection />
-        <WhyNipahSection />
         <FeaturedProductsSection />
         <AboutSection />
         <SdgsSection />
         <CommunityStoriesSection />
+        <WhyNipahSection />
         <NewsletterSection />
       </main>
 

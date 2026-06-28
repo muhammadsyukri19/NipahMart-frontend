@@ -1,15 +1,26 @@
 'use client';
-import React from 'react';
+import React, { use } from 'react';
 import Link from 'next/link';
-import { MOCK_PRODUCT_DETAILS } from '@/constants/dummyData';
+import { MOCK_PRODUCT_DETAILS, MOCK_MARKETPLACE_PRODUCTS } from '@/constants/dummyData';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductInfo } from '@/components/product/ProductInfo';
 import { ProductActions } from '@/components/product/ProductActions';
 import { ProductTabs } from '@/components/product/ProductTabs';
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  // In a real app, we would fetch product details by ID. Here we use mock data.
-  const product = MOCK_PRODUCT_DETAILS;
+export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const unwrappedParams = use(params);
+  
+  // In a real app, we would fetch product details by ID. Here we use mock data merged with the marketplace item.
+  const marketplaceItem = MOCK_MARKETPLACE_PRODUCTS.find(p => p.id === Number(unwrappedParams.id));
+  
+  const product = marketplaceItem ? {
+    ...MOCK_PRODUCT_DETAILS,
+    title: marketplaceItem.title,
+    price: marketplaceItem.price,
+    category: marketplaceItem.category,
+    images: [marketplaceItem.image, ...MOCK_PRODUCT_DETAILS.images.slice(1)],
+    isEcoSorted: marketplaceItem.isEcoSorted,
+  } : MOCK_PRODUCT_DETAILS;
 
   if (!product) {
     return (
