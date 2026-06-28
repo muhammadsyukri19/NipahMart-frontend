@@ -6,12 +6,16 @@ export function HeroSection() {
     <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden bg-surface">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHbcV39mVgMoldlXiPTx_9CEKkjD1ufBo6n5M9uEr5E6wjEF2_BdtIDSevZAqQ3q-yJKfSw3TBmxg7x_2aIHEYvLIl-B5AHNApYDasewQxs-EKgCaALZBKQtvKW6cjBG7YINXakobg155osyyEQ-Hfm8WBv4iXYcdmSKx1BZ_4ZYIkWZkUQpCxj-KffGt5aTy8PpqcypBLlJxcA6-vOvsnRGt5M5jfyoEtlzH_ChZ6E4NcnGIQVVbg1T6_3ZbT3DM4B4oPDr40rS1e"
-          alt="Hutan nipah pesisir"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/85 to-surface/10" />
+        >
+          <source src="/bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-surface/100 via-surface/60 to-transparent" />
       </div>
 
       {/* Content */}

@@ -165,7 +165,50 @@ export const MOCK_PRODUCT_DETAILS = {
   shortDesc: "Gula nipah cair murni dari nira nipah pesisir Aceh Besar. Indeks glikemik rendah, cocok untuk penderita diabetes dan diet sehat. Diproses secara tradisional tanpa tambahan bahan kimia.",
   description: "<p>Gula nipah cair premium kami disadap langsung dari pohon nipah liar yang tumbuh alami di kawasan estuari Aceh Besar. Memiliki rasa manis karamel yang khas dengan sentuhan gurih (umami) alami dari ekosistem payau.</p><br/><p><strong>Kandungan Gizi:</strong><br/>- Indeks Glikemik Rendah (GI 35-40)<br/>- Kaya Antioksidan<br/>- Mengandung Mineral Alami (Zat Besi, Kalium)</p>",
   story: "<p>Produk ini merupakan hasil kerja keras Pak Basri dan kelompok tani hutan pesisir Aceh Besar. Dengan membeli produk ini, Anda langsung berkontribusi meningkatkan pendapatan 15 keluarga nelayan/petani nipah yang beralih ke praktik pemanenan lestari tanpa merusak habitat mangrove.</p>",
-  impact: "<p><strong>Jejak Ekologis Anda:</strong></p><ul class='list-disc pl-5 mt-2'><li>Metode panen non-destruktif melestarikan 2.5 m² area nipah.</li><li>Kemasan menggunakan botol kaca daur ulang (reusable).</li><li>Diproses tanpa kayu bakar hutan, melainkan menggunakan limbah biomassa.</li></ul>"
+  impact: {
+    description: "<ul class='list-disc pl-5 mt-2'><li>Metode panen non-destruktif melestarikan 2.5 m² area nipah.</li><li>Kemasan menggunakan botol kaca daur ulang (reusable).</li><li>Diproses tanpa kayu bakar hutan, melainkan menggunakan limbah biomassa.</li></ul>",
+    locationName: "Estuari Lhoknga, Aceh Besar",
+    coordinates: "5.4521° N, 95.2443° E",
+    preservedArea: "2.5 m²",
+    mapImage: "https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  }
 };
 
+
+// ==========================================
+// Mock Data untuk Role Petani (Farmer Dashboard)
+// ==========================================
+
+export const MOCK_FARMER_USER = {
+  name: "Syarifuddin",
+  id: "Petani Terverifikasi #1042",
+  avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  location: "Aceh Coastal Hub"
+};
+
+export const MOCK_FARMER_STATS = {
+  totalHarvest: 1240, // Liters
+  harvestTrend: "+12%",
+  activeOrders: 18,
+  estEarnings: "Rp 8.400.000",
+  qualityRating: "98.4%",
+  grade: "Grade A"
+};
+
+export const MOCK_ACTIVE_SUPPLY_CHAIN = [
+  { id: "#NP-8821", partner: "Koperasi Aceh Jaya", location: "Meulaboh", status: "VERIFIKASI", nextAction: "Pindai QR", color: "warning" },
+  { id: "#NP-8799", partner: "Nipah Artisanal Home", location: "Banda Aceh", status: "SERAH TERIMA", nextAction: "Konfirmasi", color: "success-container" },
+  { id: "#NP-8750", partner: "Aceh Organic Sugars", location: "Lhokseumawe", status: "DIPROSES", nextAction: "Lacak...", color: "surface-container-highest" },
+];
+
+export const MOCK_HARVEST_HISTORY = [
+  { id: 1, date: "24 Okt 2024, 10:15 WIB", volume: 28.5, quality: "GRADE A", coordinates: "5.5483, 95.3238" },
+  { id: 2, date: "22 Okt 2024, 08:40 WIB", volume: 22.0, quality: "GRADE B", coordinates: "5.5512, 95.3195" },
+  { id: 3, date: "20 Okt 2024, 09:15 WIB", volume: 31.5, quality: "GRADE A", coordinates: "5.5483, 95.3238" },
+];
+
+export const MOCK_SUPPLY_REQUESTS = [
+  { id: 1, partner: "Koperasi Makmur Sejahtera", location: "Meulaboh North (4.2km)", volume: 50, isVerified: true },
+  { id: 2, partner: "Aceh Artisanal Vinegar Co.", location: "Central Hub (12.0km)", volume: 120, isVerified: true },
+];
 

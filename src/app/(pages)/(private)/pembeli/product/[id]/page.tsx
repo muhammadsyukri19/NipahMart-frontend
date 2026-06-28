@@ -11,6 +11,14 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
   // In a real app, we would fetch product details by ID. Here we use mock data.
   const product = MOCK_PRODUCT_DETAILS;
 
+  if (!product) {
+    return (
+      <main className="flex-1 pt-[24px] w-full max-w-[1440px] mx-auto px-8 md:px-16 pb-20 flex items-center justify-center min-h-[50vh]">
+        <div className="text-center text-outline">Memuat detail produk...</div>
+      </main>
+    );
+  }
+
   return (
     <main className="flex-1 pt-[24px] lg:pt-[36px] w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-24 pb-20">
       
