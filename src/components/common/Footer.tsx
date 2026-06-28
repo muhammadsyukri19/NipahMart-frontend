@@ -28,7 +28,11 @@ const FOOTER_LINKS = [
   },
 ];
 
-export function Footer() {
+interface FooterProps {
+  tagline?: string;
+}
+
+export function Footer({ tagline }: FooterProps = {}) {
   const year = new Date().getFullYear();
 
   return (

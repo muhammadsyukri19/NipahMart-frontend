@@ -11,7 +11,12 @@ const NAV_LINKS = [
   { label: 'Edukasi', href: '/education' },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  activePath?: string;
+  variant?: 'sticky' | 'default' | 'transparent';
+}
+
+export function Navbar({ activePath, variant = 'default' }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
