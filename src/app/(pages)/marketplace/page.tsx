@@ -40,7 +40,7 @@ export default function MarketplacePage() {
   const { data: response, isLoading, isError } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
-      const res = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/api/v1/products`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/api/v1/products`);
       if (!res.ok) throw new Error('Network response was not ok');
       return res.json();
     }

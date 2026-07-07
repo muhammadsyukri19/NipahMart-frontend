@@ -22,7 +22,7 @@ export function BuyerNavbar() {
     queryFn: async () => {
       const token = typeof window !== 'undefined' ? localStorage.getItem('token') || localStorage.getItem('accessToken') : null;
       if (!token) return null;
-      const res = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/api/v1/users/me`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/api/v1/users/me`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) return null;
