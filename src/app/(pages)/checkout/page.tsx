@@ -31,7 +31,7 @@ export default function CheckoutPage() {
 
   const checkoutMutation = useMutation({
     mutationFn: async (payload: any) => {
-      const res = await fetch('http://localhost:4000/api/v1/orders/checkout', {
+      const res = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/api/v1/orders/checkout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

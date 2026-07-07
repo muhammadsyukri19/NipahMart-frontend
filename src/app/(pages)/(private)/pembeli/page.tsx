@@ -19,7 +19,7 @@ export default function PembeliDashboardPage() {
       // Jika token belum terhubung penuh dengan localStorage di frontend, kita hardcode JWT dummy untuk seed 'pembeli@nipahub.com'.
       // Tapi untuk sekarang kita fetch biasa, jika auth butuh header, tambahkan header.
       const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-      const res = await fetch('http://localhost:4000/api/v1/users/me', {
+      const res = await fetch(`\${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/api/v1/users/me`, {
         headers: token ? { 'Authorization': `Bearer ${token}` } : {}
       });
       if (!res.ok) throw new Error('Gagal memuat profil');
