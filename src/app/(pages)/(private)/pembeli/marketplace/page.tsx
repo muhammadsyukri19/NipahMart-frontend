@@ -5,27 +5,38 @@ import { MarketplaceHeader } from '@/components/marketplace/MarketplaceHeader';
 import { FilterSidebar } from '@/components/marketplace/FilterSidebar';
 import { ProductGrid } from '@/components/marketplace/ProductGrid';
 import { Pagination } from '@/components/marketplace/Pagination';
-import { MOCK_MARKETPLACE_PRODUCTS } from '@/constants/dummyData';
+import { useQuery } from '@tanstack/react-query';
 
 export default function MarketplacePage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
+  // Fetch Products from Backend
+  const { data: response, isLoading, isError } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const res = await fetch('http://localhost:4000/api/v1/products');
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    }
+  });
+
+  const products = response?.data || [];
+
   // Dapatkan daftar kategori unik dari data produk secara otomatis
   const categories = useMemo(() => {
-    const cats = new Set(MOCK_MARKETPLACE_PRODUCTS.map(p => p.category));
-    return Array.from(cats).sort();
-  }, []);
+    const cats = new Set(products.map((p: any) => p.category));
+    return Array.from(cats).sort() as string[];
+  }, [products]);
 
   // Filter produk berdasarkan kategori dan tag keberlanjutan yang dipilih
   const filteredProducts = useMemo(() => {
-    return MOCK_MARKETPLACE_PRODUCTS.filter(p => {
+    return products.filter((p: any) => {
       const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(p.category);
-      // Jika ada tag keberlanjutan yang dipilih, asumsikan kita butuh produk yang isEcoSorted
       const matchEco = selectedTags.length === 0 || p.isEcoSorted;
       return matchCategory && matchEco;
     });
-  }, [selectedCategories, selectedTags]);
+  }, [products, selectedCategories, selectedTags]);
 
   const toggleCategory = (cat: string) => {
     setSelectedCategories(prev => 
@@ -53,7 +64,16 @@ export default function MarketplacePage() {
         />
 
         <div className="flex-1">
-          {filteredProducts.length > 0 ? (
+          {isLoading ? (
+            <div className="py-20 text-center">
+              <div className="animate-spin inline-block w-8 h-8 border-4 border-primary border-t-transparent rounded-full mb-4"></div>
+              <p className="text-on-surface-variant font-medium">Memuat katalog produk...</p>
+            </div>
+          ) : isError ? (
+            <div className="py-20 text-center text-error">
+              Gagal memuat produk. Pastikan backend berjalan.
+            </div>
+          ) : filteredProducts.length > 0 ? (
             <ProductGrid products={filteredProducts} />
           ) : (
             <div className="py-20 text-center flex flex-col items-center border border-dashed border-outline-variant rounded-sm">
@@ -69,7 +89,7 @@ export default function MarketplacePage() {
             </div>
           )}
           
-          {filteredProducts.length > 0 && <Pagination />}
+          {filteredProducts.length > 0 && !isLoading && !isError && <Pagination />}
         </div>
       </div>
     </main>

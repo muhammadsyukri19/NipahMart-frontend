@@ -83,7 +83,7 @@ export default function MarketplacePage() {
 
           {/* Product Grid Area */}
           <div className="flex-grow">
-            <MarketplaceHeader totalProducts={filteredProducts.length} />
+            <MarketplaceHeader />
             
             {isLoading ? (
               <div className="py-20 text-center">
