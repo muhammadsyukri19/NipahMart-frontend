@@ -10,12 +10,15 @@ interface CheckoutFormsProps {
   setSelectedShipping: (id: string) => void;
   selectedPayment: string;
   setSelectedPayment: (id: string) => void;
+  donateChecked: boolean;
+  setDonateChecked: (val: boolean) => void;
 }
 
 export function CheckoutForms({ 
   selectedAddress, setSelectedAddress, 
   selectedShipping, setSelectedShipping, 
-  selectedPayment, setSelectedPayment 
+  selectedPayment, setSelectedPayment,
+  donateChecked, setDonateChecked
 }: CheckoutFormsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -105,6 +108,29 @@ export function CheckoutForms({
             <div className="font-bold mb-1">Kartu Kredit</div>
             <div className="text-[11px]">Visa / Mastercard</div>
           </div>
+        </div>
+      </section>
+
+      {/* Section: Kontribusi Dampak Lingkungan */}
+      <section>
+        <h2 className="font-serif text-[24px] font-bold text-primary-dark mb-6">4. Kontribusi Dampak Lingkungan</h2>
+        <div className="bg-success-container/10 border border-success-container/30 p-5 rounded-sm flex items-start gap-4">
+          <input 
+            type="checkbox" 
+            id="donation-checkbox" 
+            checked={donateChecked}
+            onChange={(e) => setDonateChecked(e.target.checked)}
+            className="w-5 h-5 accent-primary-dark border-gray-300 rounded focus:ring-primary-dark mt-1 cursor-pointer"
+          />
+          <label htmlFor="donation-checkbox" className="cursor-pointer">
+            <span className="block text-[15px] font-bold text-primary-dark mb-1 flex items-center gap-1.5">
+              Donasikan Rp 1.000 untuk Restorasi Mangrove
+              <span className="bg-success-container/50 text-on-success-container text-[9px] px-2 py-0.5 rounded-sm uppercase tracking-wider font-bold">Aksi Nyata</span>
+            </span>
+            <span className="block text-[13px] text-on-surface-variant leading-relaxed">
+              Setiap Rp 1.000 yang Anda donasikan mendanai penanaman 1 bibit bakau oleh mitra NGO lokal (Lumbung Pesisir) untuk memulihkan ekosistem pesisir Aceh.
+            </span>
+          </label>
         </div>
       </section>
     </div>

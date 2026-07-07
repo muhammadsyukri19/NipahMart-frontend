@@ -129,7 +129,7 @@ export default function CartPage() {
                   <p className="text-[11px] text-outline text-right mt-1">*Belum termasuk biaya pengiriman</p>
                 </div>
 
-                <Link href="/pembeli/checkout" className="w-full block text-center bg-primary text-white py-3.5 text-[15px] font-medium rounded-sm hover:bg-primary-darker transition-colors mb-4">
+                <Link href="/checkout" className="w-full block text-center bg-primary text-white py-3.5 text-[15px] font-medium rounded-sm hover:bg-primary-darker transition-colors mb-4">
                   Lanjut ke Pembayaran
                 </Link>
 

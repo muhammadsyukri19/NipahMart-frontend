@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { useQuery } from '@tanstack/react-query';
 
 const NAV_LINKS = [
   { label: 'Marketplace', href: '/pembeli/marketplace' },
@@ -15,6 +16,23 @@ export function BuyerNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const pathname = usePathname();
+
+  const { data: response } = useQuery({
+    queryKey: ['userProfile'],
+    queryFn: async () => {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('token') || localStorage.getItem('accessToken') : null;
+      if (!token) return null;
+      const res = await fetch('http://localhost:4000/api/v1/users/me', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (!res.ok) return null;
+      return res.json();
+    }
+  });
+
+  const user = response?.data;
+  const avatarUrl = user?.avatarUrl || 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+  const userName = user?.name || 'Pengguna NipaHub';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-surface-container-high/60">
@@ -97,7 +115,7 @@ export function BuyerNavbar() {
                 className="w-8 h-8 rounded-full overflow-hidden border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary-dark transition-all"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  src={avatarUrl}
                   alt="Profile Avatar"
                   className="w-full h-full object-cover"
                 />
@@ -108,7 +126,7 @@ export function BuyerNavbar() {
                   <div className="fixed inset-0 z-40" onClick={() => setProfileOpen(false)}></div>
                   <div className="absolute right-0 mt-3 w-56 bg-white rounded-md shadow-xl border border-surface-container-high py-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
                     <div className="px-4 py-3 border-b border-surface-container-high mb-1">
-                      <p className="text-[14px] font-bold text-primary-dark">Cut Nyak Sofia</p>
+                      <p className="text-[14px] font-bold text-primary-dark">{userName}</p>
                       <p className="text-[12px] text-on-surface-variant">Pembeli Terverifikasi</p>
                     </div>
                     <Link href="/pembeli/settings" onClick={() => setProfileOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-on-surface-variant hover:bg-surface hover:text-primary transition-colors">
@@ -166,8 +184,8 @@ export function BuyerNavbar() {
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/pembeli/settings" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Profile" className="w-8 h-8 rounded-full border border-surface-container-high" />
-                <span className="text-[14px] font-bold text-primary-dark">Profil</span>
+                <img src={avatarUrl} alt="Profile" className="w-8 h-8 rounded-full border border-surface-container-high object-cover" />
+                <span className="text-[14px] font-bold text-primary-dark">{userName}</span>
               </Link>
               <Link href="/login" onClick={() => setMobileOpen(false)} className="ml-auto text-[13px] font-bold text-error bg-error/10 px-3 py-1.5 rounded-sm">
                 Keluar

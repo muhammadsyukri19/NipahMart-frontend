@@ -7,10 +7,13 @@ interface CheckoutSummaryProps {
   subtotal: number;
   shippingCost: number;
   ecoDiscount: number;
+  donationAmount: number;
   total: number;
+  onPay: () => void;
+  isPending?: boolean;
 }
 
-export function CheckoutSummary({ items, subtotal, shippingCost, ecoDiscount, total }: CheckoutSummaryProps) {
+export function CheckoutSummary({ items, subtotal, shippingCost, ecoDiscount, donationAmount, total, onPay, isPending }: CheckoutSummaryProps) {
   const router = useRouter();
 
   return (
@@ -44,6 +47,12 @@ export function CheckoutSummary({ items, subtotal, shippingCost, ecoDiscount, to
             <span>Ongkos Kirim</span>
             <span className="font-medium text-primary-dark">Rp {shippingCost.toLocaleString('id-ID')}</span>
           </div>
+          {donationAmount > 0 && (
+            <div className="flex justify-between text-[14px] text-on-surface-variant">
+              <span>Donasi Restorasi Mangrove</span>
+              <span className="font-medium text-success-dark">Rp {donationAmount.toLocaleString('id-ID')}</span>
+            </div>
+          )}
           {ecoDiscount > 0 && (
             <div className="flex justify-between text-[14px] text-on-success-container bg-success-container/20 p-2 rounded-sm -mx-2">
               <span className="flex items-center gap-1.5">
@@ -62,11 +71,36 @@ export function CheckoutSummary({ items, subtotal, shippingCost, ecoDiscount, to
           </div>
         </div>
 
+        <div className="bg-[#E8F0EA] border border-[#2A3B2C]/20 p-4 rounded-sm mb-6 flex gap-3">
+          <div className="text-success-dark mt-0.5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <h4 className="text-[13px] font-bold text-primary-dark mb-1">Dampak Pembelian Anda</h4>
+            <p className="text-[12px] text-[#2A3B2C] leading-relaxed">
+              Dengan transaksi ini, Anda berkontribusi menanam <span className="font-bold">1 Bibit Mangrove</span> dan mendukung <span className="font-bold">2 Pengrajin Lokal Aceh</span>.
+            </p>
+          </div>
+        </div>
+
         <button 
-          onClick={() => router.push('/pembeli/tracking/NPH-2026-88219A')}
-          className="w-full block text-center bg-primary text-white py-4 text-[15px] font-bold tracking-wide rounded-sm hover:bg-primary-darker transition-colors mb-4"
+          onClick={onPay}
+          disabled={isPending}
+          className={`w-full block text-center bg-primary text-white py-4 text-[15px] font-bold tracking-wide rounded-sm transition-colors mb-4 flex items-center justify-center gap-2 ${
+            isPending ? 'opacity-70 cursor-not-allowed' : 'hover:bg-primary-darker'
+          }`}
         >
-          Bayar Sekarang
+          {isPending ? (
+            <>
+              <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Memproses...
+            </>
+          ) : (
+            'Bayar dengan QRIS / Midtrans'
+          )}
         </button>
 
         <p className="text-center text-[11px] text-outline flex items-center justify-center gap-1">

@@ -4,6 +4,7 @@ import React from 'react';
 import { HarvestEntryForm } from '@/components/petani/HarvestEntryForm';
 import { GeotaggingMap } from '@/components/petani/GeotaggingMap';
 import { MOCK_HARVEST_HISTORY } from '@/constants/dummyData';
+import { maskCoordinates } from '@/utils/maskCoordinates';
 import Link from 'next/link';
 
 export default function LogPanenPage() {
@@ -76,7 +77,7 @@ export default function LogPanenPage() {
                     <td className="p-4">
                       <p className="text-[12px] text-on-surface-variant flex items-center gap-1">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-                        {item.coordinates}
+                        {maskCoordinates(item.coordinates)}
                       </p>
                     </td>
                     <td className="p-4 text-right">

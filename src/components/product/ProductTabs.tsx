@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { maskCoordinates } from '@/utils/maskCoordinates';
 
 interface ImpactData {
   description: string;
@@ -59,7 +60,7 @@ export function ProductTabs({ description, story, impact }: { description: strin
                   <p className="font-bold text-primary-dark">{impact.locationName}</p>
                   <p className="text-on-surface-variant flex items-center gap-1 mt-1">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    {impact.coordinates}
+                    {maskCoordinates(impact.coordinates)}
                   </p>
                 </div>
                 <div className="text-right">

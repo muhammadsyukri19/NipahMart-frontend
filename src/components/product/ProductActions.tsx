@@ -60,10 +60,24 @@ export function ProductActions({ stock }: ProductActionsProps) {
         </button>
         
         <button 
-          onClick={() => router.push('/pembeli/checkout')}
+          onClick={() => router.push('/checkout')}
           className="w-full bg-primary text-white py-3.5 rounded-sm font-bold tracking-wide hover:bg-primary-darker transition-colors"
         >
           Beli Sekarang
+        </button>
+
+        <div className="relative flex items-center py-2">
+          <div className="flex-grow border-t border-outline-variant"></div>
+          <span className="flex-shrink-0 mx-4 text-[11px] text-outline tracking-widest uppercase font-bold">Atau</span>
+          <div className="flex-grow border-t border-outline-variant"></div>
+        </div>
+
+        <button 
+          onClick={() => alert('Fitur Request Nego Harga B2B Sedang Dikembangkan (Kirim Penawaran ke Petani)')}
+          className="w-full bg-[#E8F0EA] text-[#2A3B2C] border border-[#2A3B2C]/20 py-3.5 rounded-sm font-bold tracking-wide hover:bg-[#D5E4D8] transition-colors flex items-center justify-center gap-2"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Beli Partai Besar (Nego B2B)
         </button>
       </div>
     </div>

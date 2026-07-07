@@ -1,24 +1,71 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 export default function LoginPage() {
   const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginMutation = useMutation({
+    mutationFn: async (data: any) => {
+      const res = await fetch('http://localhost:4000/api/v1/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error?.message || 'Login gagal');
+      return result;
+    },
+    onSuccess: (data) => {
+      // Redirect berdasarkan role
+      const role = data.data.user.role;
+      let roleName = 'Pembeli';
+      let route = '/pembeli';
+      
+      if (role === 'SELLER') {
+        roleName = 'Mitra Penjual';
+        route = '/petani';
+      } else if (role === 'PARTNER') {
+        roleName = 'Partner NGO';
+        route = '/partner';
+      }
+      
+      toast.success(`Login berhasil! Mengarahkan Anda ke dasbor ${roleName}...`);
+      
+      // Simpan token jika diperlukan
+      localStorage.setItem('accessToken', data.data.accessToken);
+      
+      setTimeout(() => {
+        router.push(route);
+      }, 1000);
+    },
+    onError: (err: any) => {
+      toast.error(err.message || 'Login gagal');
+    }
+  });
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulasi login sukses, arahkan langsung ke dashboard pembeli
-    router.push('/pembeli');
+    if (!email || !password) {
+      toast.error('Email dan kata sandi wajib diisi');
+      return;
+    }
+    
+    loginMutation.mutate({ email, password });
   };
   return (
     <div className="min-h-screen flex bg-surface">
       {/* Left side - Banner */}
       <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1605650130638-3f5f3e9b1191?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+          src="/images/pengrajin-nipah.webp"
           alt="Pengrajin Nipah"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -62,6 +109,8 @@ export default function LoginPage() {
               <input 
                 id="email" 
                 type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="nama@email.com" 
                 className="w-full bg-white border border-[#DDD5C8] px-4 py-3 text-[15px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors"
                 required
@@ -73,6 +122,8 @@ export default function LoginPage() {
               <input 
                 id="password" 
                 type="password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Masukkan kata sandi Anda" 
                 className="w-full bg-white border border-[#DDD5C8] px-4 py-3 text-[15px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors"
                 required
@@ -87,8 +138,8 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-primary text-white py-3.5 text-[15px] font-medium rounded-sm hover:bg-primary-darker transition-colors mt-2">
-              Masuk
+            <button type="submit" disabled={loginMutation.isPending} className="w-full bg-primary text-white py-3.5 text-[15px] font-medium rounded-sm hover:bg-primary-darker transition-colors mt-2 disabled:opacity-50">
+              {loginMutation.isPending ? 'Masuk...' : 'Masuk'}
             </button>
 
             <div className="relative flex items-center py-6">

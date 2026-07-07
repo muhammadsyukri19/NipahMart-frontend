@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 const ROLES = [
   'Pembeli (Ritel/B2B)',
@@ -11,14 +14,72 @@ const ROLES = [
 ];
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [selectedRole, setSelectedRole] = useState<string>('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const registerMutation = useMutation({
+    mutationFn: async (data: any) => {
+      const res = await fetch('http://localhost:4000/api/v1/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error?.message || 'Registrasi gagal');
+      return result;
+    },
+    onSuccess: () => {
+      toast.success('Akun Anda berhasil didaftarkan! Mengarahkan ke halaman Login...');
+      setTimeout(() => {
+        router.push('/login');
+      }, 1500);
+    },
+    onError: (err: any) => {
+      toast.error(err.message || 'Registrasi gagal');
+    }
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!selectedRole) {
+      toast.error('Silakan pilih peran Anda terlebih dahulu');
+      return;
+    }
+
+    let role = 'BUYER';
+    let sellerSubType;
+    let partnerSubType;
+
+    if (selectedRole.includes('Mitra Penjual')) {
+      role = 'SELLER';
+      sellerSubType = 'FARMER';
+    } else if (selectedRole.includes('Partner')) {
+      role = 'PARTNER';
+      partnerSubType = 'NGO';
+    }
+
+    registerMutation.mutate({
+      email,
+      password,
+      name,
+      phone,
+      role,
+      sellerSubType,
+      partnerSubType
+    });
+  };
 
   return (
     <div className="min-h-screen flex bg-surface">
       {/* Left side - Banner */}
       <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center overflow-hidden">
         <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy_AUMFRtSyJsfyqghuBVc9ZrEhAstc5lO6Iv_T91N5S5dsLU2an0_O9SGY7rSyASxkpJ4EnMRDsNX9sB_aMS0DZYHYAD-iB2DwB4kStr0kWRU6Jr0ZbLdLXfgC595PX_ZqltIRn_mV3Z5-IgsIgeYr9lTHAymqpq2B6fRPX8z8vsEV8I3u0kixMdLR0U7bUDFl-D4Jtk1UgZncwq8IyWmmugU1xgXTspYOo0zOXwMrhDoR5729B3vOMJ1_KqmLPc8NL5W1UWYDtTY"
+          src="/images/pengrajin-nipah.webp"
           alt="Pengrajin Anyaman"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -56,7 +117,7 @@ export default function RegisterPage() {
             Daftar sekarang untuk memulai perjalanan Anda di NipaHub.
           </p>
 
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             {/* Roles Selection */}
             <div className="space-y-2">
               <label className="block text-[12px] font-bold tracking-wide uppercase text-secondary">
@@ -83,24 +144,24 @@ export default function RegisterPage() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-[12px] font-bold tracking-wide uppercase text-secondary mb-1">Nama Lengkap</label>
-                <input id="fullName" type="text" placeholder="Nama Anda" className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
+                <input id="fullName" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nama Anda" className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
               </div>
               
               <div>
                 <label className="block text-[12px] font-bold tracking-wide uppercase text-secondary mb-1">Nomor Telepon</label>
-                <input id="phone" type="tel" placeholder="0812..." className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
+                <input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="0812..." className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-[12px] font-bold tracking-wide uppercase text-secondary mb-1">Email</label>
-                <input id="email" type="email" placeholder="nama@email.com" className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
+                <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="nama@email.com" className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
               </div>
               
               <div>
                 <label className="block text-[12px] font-bold tracking-wide uppercase text-secondary mb-1">Kata Sandi</label>
-                <input id="password" type="password" placeholder="Min. 8 karakter" className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
+                <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Min. 8 karakter" className="w-full bg-white border border-[#DDD5C8] px-3 py-2 text-[14px] text-primary-dark placeholder:text-outline outline-none focus:border-primary rounded-sm transition-colors" required />
               </div>
             </div>
 
@@ -116,8 +177,8 @@ export default function RegisterPage() {
               </label>
             </div>
 
-            <button type="submit" className="w-full bg-primary text-white py-2.5 text-[14px] font-medium rounded-sm hover:bg-primary-darker transition-colors mt-2">
-              Daftar Akun
+            <button type="submit" disabled={registerMutation.isPending} className="w-full bg-primary text-white py-2.5 text-[14px] font-medium rounded-sm hover:bg-primary-darker transition-colors mt-2 disabled:opacity-50">
+              {registerMutation.isPending ? 'Mendaftar...' : 'Daftar Akun'}
             </button>
 
             <div className="relative flex items-center py-3">

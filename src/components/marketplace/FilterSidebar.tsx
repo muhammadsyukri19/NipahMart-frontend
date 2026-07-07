@@ -9,7 +9,7 @@ interface FilterSidebarProps {
 }
 
 export function FilterSidebar({ categories, selectedCategories, onToggleCategory, selectedTags, onToggleTag }: FilterSidebarProps) {
-  const SUSTAINABILITY_TAGS = ["Bebas Karbon", "Dapat Terurai", "Tanpa Limbah"];
+  const SUSTAINABILITY_TAGS = ["🌿 100% Organik", "👩‍🌾 Pemberdayaan Perempuan", "♻️ Zero Waste Packaging"];
 
   return (
     <aside className="w-full lg:w-[240px] flex-shrink-0">

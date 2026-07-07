@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Providers } from "@/components/common/Providers";
+import NextTopLoader from 'nextjs-toploader';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,9 +34,28 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
           rel="stylesheet"
         />
+        {/* Midtrans Snap API for Sandbox */}
+        <script 
+          type="text/javascript" 
+          src="https://app.sandbox.midtrans.com/snap/snap.js" 
+          data-client-key="SB-Mid-client-DUMMY" 
+          async
+        ></script>
       </head>
       <body className="min-h-full flex flex-col antialiased">
-        {children}
+        <NextTopLoader
+          color="#4A2A22"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+        />
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
